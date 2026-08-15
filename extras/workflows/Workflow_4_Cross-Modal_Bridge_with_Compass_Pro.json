@@ -1,0 +1,458 @@
+{
+  "last_node_id": 15,
+  "last_link_id": 18,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        320,
+        100
+      ],
+      "widgets_values": [
+        "v1-5-pruned-emaonly.safetensors",
+        "default"
+      ],
+      "title": "Load Checkpoint"
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [
+        350,
+        0
+      ],
+      "size": [
+        400,
+        150
+      ],
+      "widgets_values": [
+        "a portrait photo"
+      ],
+      "title": "Base Prompt"
+    },
+    {
+      "id": 3,
+      "type": "EmptyLatentImage",
+      "pos": [
+        350,
+        200
+      ],
+      "size": [
+        320,
+        110
+      ],
+      "widgets_values": [
+        512,
+        512,
+        1
+      ],
+      "title": "Base Latent"
+    },
+    {
+      "id": 4,
+      "type": "KSampler",
+      "pos": [
+        800,
+        0
+      ],
+      "size": [
+        320,
+        260
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample Base Image"
+    },
+    {
+      "id": 5,
+      "type": "VAEDecode",
+      "pos": [
+        1150,
+        0
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "title": "Decode Original"
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": [
+        1400,
+        0
+      ],
+      "size": [
+        350,
+        350
+      ],
+      "title": "Original Image"
+    },
+    {
+      "id": 7,
+      "type": "Wayfinder_CrossModalBridge",
+      "pos": [
+        800,
+        300
+      ],
+      "size": [
+        500,
+        250
+      ],
+      "widgets_values": [
+        "bright warm saturated cinematic",
+        "Keyword_Heuristics"
+      ],
+      "title": "Cross-Modal Bridge (Text to Latent Vector)"
+    },
+    {
+      "id": 8,
+      "type": "WayfinderCompass_Pro",
+      "pos": [
+        1350,
+        300
+      ],
+      "size": [
+        400,
+        450
+      ],
+      "widgets_values": [
+        1.0,
+        "Standard",
+        false,
+        -10.0,
+        10.0,
+        false,
+        false,
+        false
+      ],
+      "title": "Apply Style Direction"
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        1800,
+        300
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "title": "Decode Modified"
+    },
+    {
+      "id": 10,
+      "type": "PreviewImage",
+      "pos": [
+        2050,
+        200
+      ],
+      "size": [
+        350,
+        350
+      ],
+      "title": "Keyword Heuristics Result"
+    },
+    {
+      "id": 11,
+      "type": "Wayfinder_CrossModalBridge",
+      "pos": [
+        800,
+        580
+      ],
+      "size": [
+        500,
+        250
+      ],
+      "widgets_values": [
+        "{\"luminance\": 0.3, \"warm_cool\": 0.25, \"detail\": 0.15}",
+        "Manual_JSON"
+      ],
+      "title": "Cross-Modal Bridge (JSON Control)"
+    },
+    {
+      "id": 12,
+      "type": "WayfinderCompass_Pro",
+      "pos": [
+        1350,
+        580
+      ],
+      "size": [
+        400,
+        450
+      ],
+      "widgets_values": [
+        1.0,
+        "Standard",
+        false,
+        -10.0,
+        10.0,
+        false,
+        false,
+        false
+      ],
+      "title": "Apply JSON Direction"
+    },
+    {
+      "id": 13,
+      "type": "VAEDecode",
+      "pos": [
+        1800,
+        580
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "title": "Decode JSON Modified"
+    },
+    {
+      "id": 14,
+      "type": "PreviewImage",
+      "pos": [
+        2050,
+        580
+      ],
+      "size": [
+        350,
+        350
+      ],
+      "title": "Manual JSON Result"
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncode",
+      "pos": [
+        350,
+        -200
+      ],
+      "size": [
+        400,
+        150
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "title": "Negative Prompt"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      2,
+      0,
+      4,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      3,
+      15,
+      0,
+      4,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      4,
+      3,
+      0,
+      4,
+      3,
+      "LATENT"
+    ],
+    [
+      5,
+      1,
+      1,
+      4,
+      0,
+      "VAE"
+    ],
+    [
+      6,
+      4,
+      0,
+      5,
+      0,
+      "LATENT"
+    ],
+    [
+      7,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      4,
+      0,
+      7,
+      1,
+      "LATENT"
+    ],
+    [
+      9,
+      7,
+      0,
+      8,
+      1,
+      "LATENT"
+    ],
+    [
+      10,
+      7,
+      1,
+      8,
+      2,
+      "LATENT"
+    ],
+    [
+      11,
+      4,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      12,
+      8,
+      0,
+      9,
+      0,
+      "LATENT"
+    ],
+    [
+      13,
+      1,
+      1,
+      9,
+      1,
+      "VAE"
+    ],
+    [
+      14,
+      9,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      4,
+      0,
+      11,
+      1,
+      "LATENT"
+    ],
+    [
+      16,
+      11,
+      0,
+      12,
+      1,
+      "LATENT"
+    ],
+    [
+      17,
+      11,
+      1,
+      12,
+      2,
+      "LATENT"
+    ],
+    [
+      18,
+      4,
+      0,
+      12,
+      0,
+      "LATENT"
+    ],
+    [
+      19,
+      12,
+      0,
+      13,
+      0,
+      "LATENT"
+    ],
+    [
+      20,
+      1,
+      1,
+      13,
+      1,
+      "VAE"
+    ],
+    [
+      21,
+      13,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Base Image Generation",
+      "bounding": [
+        340,
+        -250,
+        820,
+        500
+      ],
+      "color": "#3f789e"
+    },
+    {
+      "title": "Text-to-Vector via Keyword Heuristics",
+      "bounding": [
+        790,
+        250,
+        600,
+        350
+      ],
+      "color": "#e8a735"
+    },
+    {
+      "title": "JSON Precise Control",
+      "bounding": [
+        790,
+        530,
+        600,
+        350
+      ],
+      "color": "#35e87a"
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

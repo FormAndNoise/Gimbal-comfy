@@ -1,0 +1,156 @@
+{
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "portrait of a person, neutral background, studio lighting, photograph",
+      "clip": [
+        "201",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "blurry, deformed, low quality",
+      "clip": [
+        "201",
+        0
+      ]
+    }
+  },
+  "4": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 8
+    }
+  },
+  "5": {
+    "class_type": "KSampler",
+    "inputs": {
+      "seed": 0,
+      "control_after_generate": "randomize",
+      "steps": 22,
+      "cfg": 7.0,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1.0,
+      "model": [
+        "200",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "4",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "LatentFromBatch",
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "samples": [
+        "5",
+        0
+      ]
+    }
+  },
+  "7": {
+    "class_type": "Wayfinder_SemanticSlider",
+    "inputs": {
+      "pc_index": 1,
+      "slider_value": 2.0,
+      "orthogonalize": true,
+      "latent_batch": [
+        "5",
+        0
+      ],
+      "base_latent": [
+        "6",
+        0
+      ]
+    }
+  },
+  "8": {
+    "class_type": "KSampler",
+    "inputs": {
+      "seed": 0,
+      "control_after_generate": "randomize",
+      "steps": 18,
+      "cfg": 6.5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 0.5,
+      "model": [
+        "200",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "7",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "8",
+        0
+      ],
+      "vae": [
+        "202",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "Wayfinder/semantic_slider",
+      "images": [
+        "9",
+        0
+      ]
+    }
+  },
+  "200": {
+    "class_type": "UnetLoaderGGUF",
+    "inputs": {
+      "unet_name": "flux1-dev-Q4_0.gguf"
+    }
+  },
+  "201": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5\\t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    }
+  },
+  "202": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    }
+  }
+}

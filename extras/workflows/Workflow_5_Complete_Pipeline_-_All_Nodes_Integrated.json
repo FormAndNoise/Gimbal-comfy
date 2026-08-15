@@ -1,0 +1,862 @@
+{
+  "last_node_id": 25,
+  "last_link_id": 35,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        320,
+        100
+      ],
+      "widgets_values": [
+        "v1-5-pruned-emaonly.safetensors",
+        "default"
+      ],
+      "title": "Load Checkpoint"
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [
+        0,
+        150
+      ],
+      "size": [
+        300,
+        100
+      ],
+      "widgets_values": [
+        "a landscape photo"
+      ],
+      "title": "Base Prompt"
+    },
+    {
+      "id": 3,
+      "type": "EmptyLatentImage",
+      "pos": [
+        0,
+        300
+      ],
+      "size": [
+        300,
+        80
+      ],
+      "widgets_values": [
+        512,
+        512,
+        1
+      ],
+      "title": "Base Latent"
+    },
+    {
+      "id": 4,
+      "type": "KSampler",
+      "pos": [
+        350,
+        150
+      ],
+      "size": [
+        280,
+        230
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample Base"
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        0,
+        450
+      ],
+      "size": [
+        300,
+        80
+      ],
+      "widgets_values": [
+        512,
+        512,
+        6
+      ],
+      "title": "PCA Batch (6 samples)"
+    },
+    {
+      "id": 6,
+      "type": "KSampler",
+      "pos": [
+        350,
+        420
+      ],
+      "size": [
+        280,
+        230
+      ],
+      "widgets_values": [
+        0,
+        "randomize",
+        15,
+        7,
+        "euler",
+        "normal",
+        0.8
+      ],
+      "title": "Sample PCA Batch"
+    },
+    {
+      "id": 7,
+      "type": "Wayfinder_SemanticSlider",
+      "pos": [
+        680,
+        150
+      ],
+      "size": [
+        320,
+        300
+      ],
+      "widgets_values": [
+        1,
+        0.75,
+        false
+      ],
+      "title": "PCA Slider (PC1)"
+    },
+    {
+      "id": 8,
+      "type": "Wayfinder_CrossModalBridge",
+      "pos": [
+        680,
+        480
+      ],
+      "size": [
+        350,
+        200
+      ],
+      "widgets_values": [
+        "bright warm cinematic",
+        "Keyword_Heuristics"
+      ],
+      "title": "Text Style Vector"
+    },
+    {
+      "id": 9,
+      "type": "WayfinderCompass_Pro",
+      "pos": [
+        1080,
+        150
+      ],
+      "size": [
+        320,
+        400
+      ],
+      "widgets_values": [
+        0.5,
+        "Standard",
+        false,
+        -10.0,
+        10.0,
+        false,
+        false,
+        false
+      ],
+      "title": "Apply Text Style"
+    },
+    {
+      "id": 10,
+      "type": "WayfinderManifold_Explorer",
+      "pos": [
+        1080,
+        580
+      ],
+      "size": [
+        380,
+        400
+      ],
+      "widgets_values": [
+        3,
+        3,
+        0.8,
+        0.8,
+        "Linear",
+        true,
+        false,
+        -10.0,
+        10.0,
+        false
+      ],
+      "title": "Create 3x3 Exploration Grid"
+    },
+    {
+      "id": 11,
+      "type": "WayfinderGPS_Anchor",
+      "pos": [
+        1500,
+        580
+      ],
+      "size": [
+        320,
+        300
+      ],
+      "widgets_values": [
+        4,
+        true,
+        "selected_point",
+        false
+      ],
+      "title": "Anchor Center Point"
+    },
+    {
+      "id": 12,
+      "type": "VAEDecode",
+      "pos": [
+        1450,
+        150
+      ],
+      "size": [
+        200,
+        50
+      ],
+      "title": "Decode Final"
+    },
+    {
+      "id": 13,
+      "type": "PreviewImage",
+      "pos": [
+        1700,
+        100
+      ],
+      "size": [
+        350,
+        350
+      ],
+      "title": "Final Result"
+    },
+    {
+      "id": 14,
+      "type": "VAEDecode",
+      "pos": [
+        1500,
+        400
+      ],
+      "size": [
+        200,
+        50
+      ],
+      "title": "Decode Grid Cell"
+    },
+    {
+      "id": 15,
+      "type": "PreviewImage",
+      "pos": [
+        1700,
+        480
+      ],
+      "size": [
+        350,
+        350
+      ],
+      "title": "Anchored Grid Cell"
+    },
+    {
+      "id": 16,
+      "type": "ShowText",
+      "pos": [
+        1500,
+        850
+      ],
+      "size": [
+        500,
+        200
+      ],
+      "widgets_values": [
+        ""
+      ],
+      "title": "Waypoint Report"
+    },
+    {
+      "id": 17,
+      "type": "CLIPTextEncode",
+      "pos": [
+        0,
+        600
+      ],
+      "size": [
+        300,
+        100
+      ],
+      "widgets_values": [
+        "bright high key"
+      ],
+      "title": "X Target"
+    },
+    {
+      "id": 18,
+      "type": "CLIPTextEncode",
+      "pos": [
+        0,
+        750
+      ],
+      "size": [
+        300,
+        100
+      ],
+      "widgets_values": [
+        "dark low key"
+      ],
+      "title": "X Origin"
+    },
+    {
+      "id": 19,
+      "type": "KSampler",
+      "pos": [
+        350,
+        700
+      ],
+      "size": [
+        280,
+        230
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        15,
+        7,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample X Target"
+    },
+    {
+      "id": 20,
+      "type": "KSampler",
+      "pos": [
+        350,
+        960
+      ],
+      "size": [
+        280,
+        230
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        15,
+        7,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample X Origin"
+    },
+    {
+      "id": 21,
+      "type": "WayfinderCompass_Pro",
+      "pos": [
+        680,
+        720
+      ],
+      "size": [
+        320,
+        350
+      ],
+      "widgets_values": [
+        1.0,
+        "Normalized",
+        false,
+        -10.0,
+        10.0,
+        false,
+        false,
+        false
+      ],
+      "title": "X Direction Vector"
+    },
+    {
+      "id": 22,
+      "type": "CLIPTextEncode",
+      "pos": [
+        0,
+        1100
+      ],
+      "size": [
+        300,
+        100
+      ],
+      "widgets_values": [
+        "sharp detailed"
+      ],
+      "title": "Y Target"
+    },
+    {
+      "id": 23,
+      "type": "CLIPTextEncode",
+      "pos": [
+        0,
+        1250
+      ],
+      "size": [
+        300,
+        100
+      ],
+      "widgets_values": [
+        "soft blurry"
+      ],
+      "title": "Y Origin"
+    },
+    {
+      "id": 24,
+      "type": "KSampler",
+      "pos": [
+        350,
+        1200
+      ],
+      "size": [
+        280,
+        230
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        15,
+        7,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample Y Target"
+    },
+    {
+      "id": 25,
+      "type": "KSampler",
+      "pos": [
+        350,
+        1460
+      ],
+      "size": [
+        280,
+        230
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        15,
+        7,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample Y Origin"
+    },
+    {
+      "id": 26,
+      "type": "WayfinderCompass_Pro",
+      "pos": [
+        680,
+        1200
+      ],
+      "size": [
+        320,
+        350
+      ],
+      "widgets_values": [
+        1.0,
+        "Normalized",
+        false,
+        -10.0,
+        10.0,
+        false,
+        false,
+        false
+      ],
+      "title": "Y Direction Vector"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      2,
+      0,
+      4,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      3,
+      "LATENT"
+    ],
+    [
+      4,
+      1,
+      1,
+      4,
+      0,
+      "VAE"
+    ],
+    [
+      5,
+      2,
+      0,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      5,
+      0,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      7,
+      1,
+      1,
+      6,
+      0,
+      "VAE"
+    ],
+    [
+      8,
+      6,
+      0,
+      7,
+      0,
+      "LATENT"
+    ],
+    [
+      9,
+      4,
+      0,
+      7,
+      1,
+      "LATENT"
+    ],
+    [
+      10,
+      4,
+      0,
+      8,
+      1,
+      "LATENT"
+    ],
+    [
+      11,
+      7,
+      0,
+      9,
+      0,
+      "LATENT"
+    ],
+    [
+      12,
+      8,
+      0,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      13,
+      8,
+      1,
+      9,
+      2,
+      "LATENT"
+    ],
+    [
+      14,
+      9,
+      0,
+      12,
+      0,
+      "LATENT"
+    ],
+    [
+      15,
+      1,
+      1,
+      12,
+      1,
+      "VAE"
+    ],
+    [
+      16,
+      12,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      21,
+      0,
+      10,
+      1,
+      "LATENT"
+    ],
+    [
+      18,
+      26,
+      0,
+      10,
+      2,
+      "LATENT"
+    ],
+    [
+      19,
+      4,
+      0,
+      10,
+      0,
+      "LATENT"
+    ],
+    [
+      20,
+      10,
+      0,
+      11,
+      0,
+      "LATENT"
+    ],
+    [
+      21,
+      10,
+      1,
+      11,
+      5,
+      "DICT"
+    ],
+    [
+      22,
+      11,
+      0,
+      14,
+      0,
+      "LATENT"
+    ],
+    [
+      23,
+      1,
+      1,
+      14,
+      1,
+      "VAE"
+    ],
+    [
+      24,
+      14,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      11,
+      2,
+      16,
+      0,
+      "STRING"
+    ],
+    [
+      26,
+      1,
+      0,
+      17,
+      0,
+      "CLIP"
+    ],
+    [
+      27,
+      1,
+      0,
+      18,
+      0,
+      "CLIP"
+    ],
+    [
+      28,
+      17,
+      0,
+      19,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      29,
+      18,
+      0,
+      20,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      30,
+      1,
+      1,
+      19,
+      0,
+      "VAE"
+    ],
+    [
+      31,
+      1,
+      1,
+      20,
+      0,
+      "VAE"
+    ],
+    [
+      32,
+      19,
+      0,
+      21,
+      1,
+      "LATENT"
+    ],
+    [
+      33,
+      20,
+      0,
+      21,
+      2,
+      "LATENT"
+    ],
+    [
+      34,
+      1,
+      0,
+      22,
+      0,
+      "CLIP"
+    ],
+    [
+      35,
+      1,
+      0,
+      23,
+      0,
+      "CLIP"
+    ],
+    [
+      36,
+      22,
+      0,
+      24,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      37,
+      23,
+      0,
+      25,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      38,
+      1,
+      1,
+      24,
+      0,
+      "VAE"
+    ],
+    [
+      39,
+      1,
+      1,
+      25,
+      0,
+      "VAE"
+    ],
+    [
+      40,
+      24,
+      0,
+      26,
+      1,
+      "LATENT"
+    ],
+    [
+      41,
+      25,
+      0,
+      26,
+      2,
+      "LATENT"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "1. Base Image + PCA Analysis",
+      "bounding": [
+        -20,
+        -50,
+        1040,
+        600
+      ],
+      "color": "#3f789e"
+    },
+    {
+      "title": "2. Text-to-Style + Apply",
+      "bounding": [
+        660,
+        450,
+        760,
+        350
+      ],
+      "color": "#e8a735"
+    },
+    {
+      "title": "3. Define Exploration Axes",
+      "bounding": [
+        -20,
+        680,
+        1040,
+        1060
+      ],
+      "color": "#35e87a"
+    },
+    {
+      "title": "4. Grid Exploration + Anchor",
+      "bounding": [
+        1060,
+        550,
+        800,
+        550
+      ],
+      "color": "#8b35e8"
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

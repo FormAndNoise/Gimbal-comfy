@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <rect width="1280" height="640" fill="#0B0B0B" />
+  <rect x="32" y="32" width="1216" height="576" rx="16" fill="none" stroke="#222222" stroke-width="1" />
+  
+  <!-- Large Left Symbol -->
+  <g transform="translate(140, 200) scale(10)" fill="none" stroke="#35B8B8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.75" />
+    <line x1="5.5" y1="12" x2="8.5" y2="12" />
+    <line x1="15.5" y1="12" x2="18.5" y2="12" />
+    <line x1="9" y1="9" x2="15" y2="9" />
+    <line x1="10" y1="15" x2="14" y2="15" />
+    <line x1="12" y1="5.25" x2="12" y2="7" />
+    <circle cx="12" cy="12" r="1.3" fill="#35B8B8" stroke="none" />
+  </g>
+
+  <!-- Text Hierarchy -->
+  <g transform="translate(440, 250)">
+    <text x="0" y="0" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="500" fill="#35B8B8" letter-spacing="2px">FORM &amp; NOISE ATELIER</text>
+    <text x="0" y="70" font-family="'Space Grotesk', sans-serif" font-size="72" font-weight="700" fill="#F2EEE8" letter-spacing="-2px">Gimbal</text>
+    <text x="0" y="130" font-family="'Inter', sans-serif" font-size="22" font-weight="400" fill="#A8A49E">Navigate latent space with precision flight instruments, not lottery prompts.</text>
+    
+    <g transform="translate(0, 190)">
+      <rect width="180" height="36" rx="6" fill="#181818" stroke="#333333" stroke-width="1" />
+      <text x="90" y="23" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="500" fill="#35B8B8" text-anchor="middle">COMFYUI NODES</text>
+      
+      <rect x="200" width="160" height="36" rx="6" fill="#181818" stroke="#333333" stroke-width="1" />
+      <text x="280" y="23" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="500" fill="#A8A49E" text-anchor="middle">SLERP / MANIFOLD</text>
+      
+      <rect x="380" width="140" height="36" rx="6" fill="#181818" stroke="#333333" stroke-width="1" />
+      <text x="450" y="23" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="500" fill="#A8A49E" text-anchor="middle">FLUX + SDXL</text>
+    </g>
+  </g>
+</svg>

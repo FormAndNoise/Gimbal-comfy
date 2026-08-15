@@ -1,0 +1,1 @@
+import json; data = json.load(open(r'H:\Wayfinder\extras\workflows\Workflow_1_Basic_Compass_Pro_-_Style_Transfer.json', 'r', encoding='utf-8')); print([(n['id'], n['type'], n.get('inputs', [])) for n in data.get('nodes', []) if n['type'] in ['PreviewImage', 'ShowText', 'ShowText|pysssss']])

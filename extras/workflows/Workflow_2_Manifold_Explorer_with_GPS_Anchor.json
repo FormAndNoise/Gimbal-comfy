@@ -1,0 +1,628 @@
+{
+  "last_node_id": 18,
+  "last_link_id": 20,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        320,
+        100
+      ],
+      "widgets_values": [
+        "v1-5-pruned-emaonly.safetensors",
+        "default"
+      ],
+      "title": "Load Checkpoint"
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [
+        350,
+        0
+      ],
+      "size": [
+        400,
+        150
+      ],
+      "widgets_values": [
+        "a portrait photo, neutral lighting"
+      ],
+      "title": "Prompt"
+    },
+    {
+      "id": 3,
+      "type": "EmptyLatentImage",
+      "pos": [
+        350,
+        200
+      ],
+      "size": [
+        320,
+        110
+      ],
+      "widgets_values": [
+        512,
+        512,
+        1
+      ],
+      "title": "Center Latent"
+    },
+    {
+      "id": 4,
+      "type": "KSampler",
+      "pos": [
+        800,
+        0
+      ],
+      "size": [
+        320,
+        260
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample Center"
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        350,
+        -200
+      ],
+      "size": [
+        400,
+        150
+      ],
+      "widgets_values": [
+        "bright, high key, warm lighting"
+      ],
+      "title": "X-Axis Target (Brightness)"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        350,
+        -350
+      ],
+      "size": [
+        400,
+        150
+      ],
+      "widgets_values": [
+        "dark, low key, cool lighting"
+      ],
+      "title": "X-Axis Origin (Darkness)"
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        800,
+        -350
+      ],
+      "size": [
+        320,
+        260
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample X Target"
+    },
+    {
+      "id": 8,
+      "type": "KSampler",
+      "pos": [
+        800,
+        -600
+      ],
+      "size": [
+        320,
+        260
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample X Origin"
+    },
+    {
+      "id": 9,
+      "type": "WayfinderCompass_Pro",
+      "pos": [
+        1200,
+        -500
+      ],
+      "size": [
+        350,
+        400
+      ],
+      "widgets_values": [
+        1.0,
+        "Normalized",
+        false,
+        -10.0,
+        10.0,
+        false,
+        false,
+        false
+      ],
+      "title": "X Vector (Brightness Direction)"
+    },
+    {
+      "id": 10,
+      "type": "CLIPTextEncode",
+      "pos": [
+        350,
+        400
+      ],
+      "size": [
+        400,
+        150
+      ],
+      "widgets_values": [
+        "sharp, detailed, high contrast"
+      ],
+      "title": "Y-Axis Target (Sharpness)"
+    },
+    {
+      "id": 11,
+      "type": "CLIPTextEncode",
+      "pos": [
+        350,
+        550
+      ],
+      "size": [
+        400,
+        150
+      ],
+      "widgets_values": [
+        "soft, blurry, low contrast"
+      ],
+      "title": "Y-Axis Origin (Softness)"
+    },
+    {
+      "id": 12,
+      "type": "KSampler",
+      "pos": [
+        800,
+        400
+      ],
+      "size": [
+        320,
+        260
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample Y Target"
+    },
+    {
+      "id": 13,
+      "type": "KSampler",
+      "pos": [
+        800,
+        650
+      ],
+      "size": [
+        320,
+        260
+      ],
+      "widgets_values": [
+        42,
+        "fixed",
+        20,
+        8,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Sample Y Origin"
+    },
+    {
+      "id": 14,
+      "type": "WayfinderCompass_Pro",
+      "pos": [
+        1200,
+        500
+      ],
+      "size": [
+        350,
+        400
+      ],
+      "widgets_values": [
+        1.0,
+        "Normalized",
+        false,
+        -10.0,
+        10.0,
+        false,
+        false,
+        false
+      ],
+      "title": "Y Vector (Sharpness Direction)"
+    },
+    {
+      "id": 15,
+      "type": "WayfinderManifold_Explorer",
+      "pos": [
+        1600,
+        0
+      ],
+      "size": [
+        400,
+        500
+      ],
+      "widgets_values": [
+        5,
+        5,
+        1.5,
+        1.5,
+        "Linear",
+        true,
+        false,
+        -10.0,
+        10.0,
+        false
+      ],
+      "title": "Manifold Explorer (5x5 Grid)"
+    },
+    {
+      "id": 16,
+      "type": "WayfinderGPS_Anchor",
+      "pos": [
+        2050,
+        0
+      ],
+      "size": [
+        350,
+        350
+      ],
+      "widgets_values": [
+        12,
+        true,
+        "bright_sharp_corner",
+        false
+      ],
+      "title": "GPS Anchor (Select Grid Cell)"
+    },
+    {
+      "id": 17,
+      "type": "VAEDecode",
+      "pos": [
+        2450,
+        0
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "title": "Decode Anchored Latent"
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": [
+        2700,
+        0
+      ],
+      "size": [
+        400,
+        400
+      ],
+      "title": "Selected Grid Cell"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      2,
+      0,
+      4,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      2,
+      "LATENT"
+    ],
+    [
+      4,
+      1,
+      1,
+      4,
+      0,
+      "VAE"
+    ],
+    [
+      5,
+      1,
+      0,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      1,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      7,
+      5,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      6,
+      0,
+      8,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      9,
+      1,
+      1,
+      7,
+      0,
+      "VAE"
+    ],
+    [
+      10,
+      1,
+      1,
+      8,
+      0,
+      "VAE"
+    ],
+    [
+      11,
+      7,
+      0,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      12,
+      8,
+      0,
+      9,
+      2,
+      "LATENT"
+    ],
+    [
+      13,
+      9,
+      0,
+      15,
+      1,
+      "LATENT"
+    ],
+    [
+      14,
+      1,
+      0,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      15,
+      1,
+      0,
+      11,
+      0,
+      "CLIP"
+    ],
+    [
+      16,
+      10,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      17,
+      11,
+      0,
+      13,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      1,
+      1,
+      12,
+      0,
+      "VAE"
+    ],
+    [
+      19,
+      1,
+      1,
+      13,
+      0,
+      "VAE"
+    ],
+    [
+      20,
+      12,
+      0,
+      14,
+      1,
+      "LATENT"
+    ],
+    [
+      21,
+      13,
+      0,
+      14,
+      2,
+      "LATENT"
+    ],
+    [
+      22,
+      14,
+      0,
+      15,
+      2,
+      "LATENT"
+    ],
+    [
+      23,
+      4,
+      0,
+      15,
+      0,
+      "LATENT"
+    ],
+    [
+      24,
+      15,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      25,
+      15,
+      1,
+      16,
+      5,
+      "DICT"
+    ],
+    [
+      26,
+      16,
+      0,
+      17,
+      0,
+      "LATENT"
+    ],
+    [
+      27,
+      1,
+      1,
+      17,
+      1,
+      "VAE"
+    ],
+    [
+      28,
+      17,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "X-Axis: Brightness Direction",
+      "bounding": [
+        340,
+        -400,
+        860,
+        500
+      ],
+      "color": "#e8a735"
+    },
+    {
+      "title": "Center Point",
+      "bounding": [
+        340,
+        -50,
+        820,
+        400
+      ],
+      "color": "#3f789e"
+    },
+    {
+      "title": "Y-Axis: Sharpness Direction",
+      "bounding": [
+        340,
+        350,
+        860,
+        600
+      ],
+      "color": "#35e87a"
+    },
+    {
+      "title": "2D Grid Exploration",
+      "bounding": [
+        1590,
+        -50,
+        420,
+        550
+      ],
+      "color": "#2a363b"
+    },
+    {
+      "title": "GPS Anchor & Output",
+      "bounding": [
+        2040,
+        -50,
+        600,
+        450
+      ],
+      "color": "#8b35e8"
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
