@@ -1,24 +1,83 @@
 # 🧭 Gimbal — Navigate latent space with precision flight instruments, not lottery prompts.
 
-[![Form & Noise Atelier](https://img.shields.io/badge/Form%20%26%20Noise-Atelier-0E8A8A?style=flat-square)](https://github.com/FormAndNoise)
-[![ComfyUI Node Suite](https://img.shields.io/badge/ComfyUI-Custom%20Nodes-141414?style=flat-square&logo=comfyui)](https://github.com/comfyanonymous/ComfyUI)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)](https://python.org)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=flat-square&logo=pytorch)](https://pytorch.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-teal?style=flat-square)](LICENSE)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="brand/lockup-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="brand/lockup-light.svg">
+    <img alt="Gimbal — Navigate latent space with precision flight instruments, not lottery prompts." src="brand/gimbal_lockup_dark.png" width="100%">
+  </picture>
+</p>
 
-**Gimbal** (formerly Wayfinder / Latent Explorer) is a precision latent space navigation suite for visual generative artists, creative technologists, and AI researchers built on **ComfyUI**.
-
-Generative latent spaces are not lottery slots—they are high-dimensional topological manifolds. **Gimbal** treats latent space as a navigable, reproducible coordinate geography: steer along concept axes, map 2D manifold slices with spherical linear interpolation ($\mu$-centered SLERP), execute closed-loop orbits, spline through waypoints, and stabilize distributions using normalizing flow math.
+<p align="center">
+  <a href="https://github.com/FormAndNoise"><img src="https://img.shields.io/badge/Form%20%26%20Noise-Atelier-0E8A8A?style=flat-square" alt="Form & Noise Atelier"></a>
+  <a href="https://github.com/comfyanonymous/ComfyUI"><img src="https://img.shields.io/badge/ComfyUI-Custom%20Nodes-141414?style=flat-square&logo=comfyui" alt="ComfyUI Node Suite"></a>
+  <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python" alt="Python 3.10+"></a>
+  <a href="https://pytorch.org"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=flat-square&logo=pytorch" alt="PyTorch 2.0+"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-teal?style=flat-square" alt="License: MIT"></a>
+</p>
 
 ---
 
-## 🏛️ Atelier Brand Standards & Identity
+**Gimbal** (formerly *Wayfinder* / *Latent Explorer*) is an artisan-grade latent space navigation suite for visual generative artists, creative technologists, and AI researchers built on **ComfyUI**.
 
-- **Suite**: Loose Endorsed Family (*Form & Noise Atelier*)
-- **Accent**: Instrument Teal (`#0E8A8A` / Dark: `#35B8B8`)
-- **Job Line**: *"Navigate latent space with precision flight instruments, not lottery prompts."*
-- **Visual Mark**: 24×24u artificial horizon / attitude indicator dial with a pitch ladder and 1 solid center heading pip.
-- **Frontend HUD**: Custom Atelier Void (`#0B0B0B`) HUD styling and live telemetry widgets in `web/js/gimbal.js`.
+Generative latent spaces are not lottery slots—they are high-dimensional topological manifolds. **Gimbal** treats latent space as a navigable, reproducible coordinate geography: steer along concept axes, map 2D manifold slices with spherical linear interpolation ($\mu$-centered SLERP), execute closed-loop orbits, spline through keypoints with constant geodesic velocity, and stabilize distributions using normalizing flow math.
+
+---
+
+## 🏛️ Studio Ecosystem & Atelier Brand Standards
+
+**Gimbal** is designed and maintained by **[Form & Noise Atelier](https://github.com/FormAndNoise)** as part of the **Loose Endorsed Family** of precision creative engineering tools:
+
+| Tool | Focus & Architecture | Stack / Target |
+| :--- | :--- | :--- |
+| **🧭 Gimbal** | Latent space flight instruments, vector navigation, and manifold mapping | ComfyUI / PyTorch / CUDA |
+| **🃏 Cartouche** | Local-first workspace for managing deliverable card grids | Tauri 2 / React 19 / SQLite |
+| **📐 Pantograph** | High-performance batch image vectorization engine (`vpipe`) | Rust / WebAssembly |
+| **📖 Colophon** | Autonomous LLM-driven publishing and editorial book layout suite | ComfyUI / Typst / Python |
+| **📑 Quire** | Structural PDF signature imposition for Coptic and codex bookbinding | Python / CLI |
+| **🎞️ Dredge** | Resilient MP4/MOV stream recovery and Annex B/ADTS stream reconstruction | Rust / Native CLI |
+
+---
+
+## 🎨 Brand Identity & Design Tokens
+
+Gimbal adheres to the strict **Form & Noise Atelier Brand Standards** (documented in full at [`brand/BRAND.md`](brand/BRAND.md)):
+
+### 1. Invariant Hero Lockup & Job Line
+All studio releases share the unified Loose Endorsed Family lockup formula:
+```markdown
+[Symbol] [Product Name] — [One-Sentence Job Line]
+🧭 Gimbal — Navigate latent space with precision flight instruments, not lottery prompts.
+```
+
+### 2. Visual Mark & Geometry
+- **Metaphor**: An aeronautical artificial horizon / attitude indicator dial consisting of a circular bezel enclosing horizontal datum bars, pitch ladder index lines, and **one solid center heading pip**.
+- **Canvas Geometry**: $24 \times 24$ unit square canvas (bounded to $20 \times 20$ optical area) with $2\text{u}$ corner radii.
+- **Stroke & Line Quality**: Exact $1.75\text{u}$ stroke width (`stroke-width="1.75"`), `fill="none"`, with `stroke-linecap="round"` and `stroke-linejoin="round"`.
+- **The Family Fingerprint**: Exactly **one solid circular state/heading pip** ($r = 1.3\text{u}$ / $2.6\text{u}$ diameter, `fill="currentColor"`, `stroke="none"`) centered at the instrument origin `(12, 12)`.
+
+<p align="center">
+  <img src="brand/symbol.svg" alt="Gimbal Attitude Indicator Mark" width="120" height="120">
+</p>
+
+### 3. Atelier Color Law
+Gimbal's palette is grounded in the contrast between deep instrument voids and crisp paper schematics, accented with high-visibility instrument teal and the signature Form & Noise house metal:
+
+| Token Name | Light Ground (`#F6F1EA` Paper) | Dark Ground (`#0B0B0B` Void) | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Instrument Accent** | `#0E8A8A` (Instrument Teal) | `#35B8B8` (Instrument Teal Dark) | Active vectors, telemetry highlights, heading markers |
+| **House Metal** | `#D45500` (Safety Rust) | `#D45500` (Safety Rust) | Universal Form & Noise Atelier signature metal accent |
+| **Ink Foreground** | `#141414` (Deep Charcoal) | `#F2EEE8` (Warm Off-White) | High-contrast typography, primary iconography, dial rims |
+| **Ground / Canvas** | `#F6F1EA` (Paper Ground) | `#0B0B0B` (Void Ground) | Canvas backdrop, node body background, HUD surfaces |
+| **Muted Hairline** | `#8A8680` | `#6B6763` | Subordinate pitch rungs, coordinate grids, border hairlines |
+
+### 4. Typography Stack
+- **Wordmarks & Display Headers**: **Space Grotesk** (Medium / SemiBold, tracking $-1\%$ to $-2\%$)
+- **Interface & Body Text**: **Inter** (Regular / Medium)
+- **Code, Telemetry & Math**: **IBM Plex Mono** / **JetBrains Mono** (Regular)
+
+### 5. ComfyUI Frontend HUD Styling
+The frontend extension in [`web/js/gimbal.js`](web/js/gimbal.js) themes all Gimbal nodes in ComfyUI with the **Atelier Void** (`#0B0B0B` / `#0E8A8A` / `#35B8B8`) aesthetic, providing real-time vector diagnostics, custom compass dials, and interactive batch telemetry.
 
 ---
 
@@ -109,7 +168,14 @@ gimbal-comfy/
 ├── brand/                     # Form & Noise Atelier visual marks & lockups
 │   ├── BRAND.md               # Atelier design standards & tokens
 │   ├── symbol.svg             # 24x24u Attitude indicator dial symbol
-│   └── gimbal_lockup_dark.png # High-res hero lockup
+│   ├── symbol-micro.svg       # Micro variant icon
+│   ├── lockup-dark.svg        # Dark mode vector lockup
+│   ├── lockup-light.svg       # Light mode vector lockup
+│   ├── avatar-512.svg         # 512x512 avatar SVG
+│   ├── gimbal_avatar_512.png  # Rasterized 512px avatar
+│   ├── gimbal_lockup_dark.png # High-res hero lockup (dark)
+│   ├── gimbal_lockup_light.png# High-res hero lockup (light)
+│   └── gimbal_social_preview.png # Social share card
 ├── docs/                      # Research documentation & technical specs
 │   ├── Gimbal_Starter_Guide.md# Quick start & flight guide
 │   └── research/              # LAMNr & Disentangled representation papers
@@ -142,6 +208,6 @@ gimbal-comfy/
 
 ---
 
-## 📜 License
+## 📜 License & Studio Attribution
 
-Released under the **MIT License**. Created by **Form & Noise Atelier**.
+Released under the **MIT License**. Created with precision by **[Form & Noise Atelier](https://github.com/FormAndNoise)**.
