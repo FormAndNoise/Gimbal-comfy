@@ -105,25 +105,25 @@ pytest
 
 ```
 gimbal-comfy/
-├── __init__.py                # ComfyUI node registration & display names
-├── AGENTS.md                  # Atelier agent protocol & specifications
-├── pytest.ini                 # Test discovery configuration
-├── requirements.txt           # Minimal PyTorch & ComfyUI dependencies
-├── brand/                     # Form & Noise Atelier visual marks & lockups
-│   ├── BRAND.md               # Atelier design standards & tokens
-│   ├── symbol.svg             # 24x24u Attitude indicator dial symbol
-│   ├── symbol-micro.svg       # Micro variant icon
-│   ├── lockup-dark.svg        # Dark mode vector lockup
-│   ├── lockup-light.svg       # Light mode vector lockup
-│   ├── avatar-512.svg         # 512x512 avatar SVG
-│   ├── gimbal_avatar_512.png  # Rasterized 512px avatar
-│   ├── gimbal_lockup_dark.png # High-res hero lockup (dark)
-│   ├── gimbal_lockup_light.png# High-res hero lockup (light)
-│   └── gimbal_social_preview.png # Social share card
-├── docs/                      # Research documentation & technical specs
-│   ├── Gimbal_Starter_Guide.md# Quick start & flight guide
-│   └── research/              # LAMNr & Disentangled representation papers
-├── nodes/                     # Core PyTorch flight instruments & math
+├── __init__.py                		 # ComfyUI node registration & display names
+├── AGENTS.md                  		 # Atelier agent protocol & specifications
+├── pytest.ini                		 # Test discovery configuration
+├── requirements.txt         		 # Minimal PyTorch & ComfyUI dependencies
+├── brand/                   		 # Form & Noise Atelier visual marks & lockups
+│   ├── BRAND.md             		 # Atelier design standards & tokens
+│   ├── symbol.svg            		 # 24x24u Attitude indicator dial symbol
+│   ├── symbol-micro.svg      		 # Micro variant icon
+│   ├── lockup-dark.svg       		 # Dark mode vector lockup
+│   ├── lockup-light.svg      		 # Light mode vector lockup
+│   ├── avatar-512.svg         	 # 512x512 avatar SVG
+│   ├── gimbal_avatar_512.png  	 # Rasterized 512px avatar
+│   ├── gimbal_lockup_dark.png 	 # High-res hero lockup (dark)
+│   ├── gimbal_lockup_light.png	 # High-res hero lockup (light)
+│   └── gimbal_social_preview.png 	 # Social share card
+├── docs/                     		 # Research documentation & technical specs
+│   ├── Gimbal_Starter_Guide.md	 # Quick start & flight guide
+│   └── research/              	 # LAMNr & Disentangled representation papers
+├── nodes/                    		 # Core PyTorch flight instruments & math
 │   ├── gimbal_compass.py
 │   ├── gimbal_manifold_explorer.py
 │   ├── gimbal_circular_orbit.py
