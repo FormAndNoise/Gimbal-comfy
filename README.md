@@ -22,33 +22,6 @@
 
 Generative latent spaces are not lottery slots—they are high-dimensional topological manifolds. **Gimbal** treats latent space as a navigable, reproducible coordinate geography: steer along concept axes, map 2D manifold slices with spherical linear interpolation ($\mu$-centered SLERP), execute closed-loop orbits, spline through keypoints with constant geodesic velocity, and stabilize distributions using normalizing flow math.
 
----
-
-## 🏛️ Studio Ecosystem & Atelier Brand Standards
-
-**Gimbal** is designed and maintained by **[Form & Noise Atelier](https://github.com/FormAndNoise)** as part of the **Loose Endorsed Family** of precision creative engineering tools:
-
-| Tool | Focus & Architecture | Stack / Target |
-| :--- | :--- | :--- |
-| **🧭 Gimbal** | Latent space flight instruments, vector navigation, and manifold mapping | ComfyUI / PyTorch / CUDA |
-| **🃏 Cartouche** | Local-first workspace for managing deliverable card grids | Tauri 2 / React 19 / SQLite |
-| **📐 Pantograph** | High-performance batch image vectorization engine (`vpipe`) | Rust / WebAssembly |
-| **📖 Colophon** | Autonomous LLM-driven publishing and editorial book layout suite | ComfyUI / Typst / Python |
-| **📑 Quire** | Structural PDF signature imposition for Coptic and codex bookbinding | Python / CLI |
-| **🎞️ Dredge** | Resilient MP4/MOV stream recovery and Annex B/ADTS stream reconstruction | Rust / Native CLI |
-
----
-
-## 🎨 Brand Identity & Design Tokens
-
-Gimbal adheres to the strict **Form & Noise Atelier Brand Standards** (documented in full at [`brand/BRAND.md`](brand/BRAND.md)):
-
-### 1. Invariant Hero Lockup & Job Line
-All studio releases share the unified Loose Endorsed Family lockup formula:
-```markdown
-[Symbol] [Product Name] — [One-Sentence Job Line]
-🧭 Gimbal — Navigate latent space with precision flight instruments, not lottery prompts.
-```
 
 ### 2. Visual Mark & Geometry
 - **Metaphor**: An aeronautical artificial horizon / attitude indicator dial consisting of a circular bezel enclosing horizontal datum bars, pitch ladder index lines, and **one solid center heading pip**.
