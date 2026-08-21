@@ -30,37 +30,37 @@ Generative latent spaces are not lottery slots—they are high-dimensional topol
 ### 1. Flight Instruments & Trajectory Navigation
 | Node | Class Name | Description |
 | :--- | :--- | :--- |
-| **🧭 Gimbal Compass Pro** | `GimbalCompass_Pro` | Vector arithmetic ($Target - Origin$) with **Standard**, **Normalized**, **Orthogonal Projection**, and **Blend Overlay** modes plus localized mask guidance. |
-| **🗺️ Gimbal Manifold Explorer** | `GimbalManifold_Explorer` | 2D topological manifold slice generator across independent X/Y vectors with true $\mu$-centered SLERP following the high-probability Gaussian Annulus shell. |
-| **🔄 Gimbal Circular Orbit** | `GimbalCircularOrbit` | Constant-radius closed-loop spherical orbits for seamless looping animations and harmonic latent tours. |
-| **🛤️ Gimbal Waypoint Spline** | `GimbalWaypointSpline` | Continuous Catmull-Rom spherical spline flight paths through $N$ arbitrary latent keypoints with constant geodesic velocity. |
-| **🎚️ Gimbal Semantic Slider** | `Gimbal_SemanticSlider` | Real-time PCA/SVD decomposition extracting orthogonal variance directions for independent attribute modulation. |
-| **🌉 Gimbal Cross-Modal Bridge** | `Gimbal_CrossModalBridge` | Multimodal text-to-latent projection steering diffusion representations via keyword heuristics or CLIP pooled embeddings. |
-| **🧬 Gimbal Likeness Isolator** | `LikenessVectorIsolator` | Dynamic LoRA probe isolating identity tokens from stylistic tokens in the CLIP text-encoder. |
-| **🗺️ Gimbal Grid Stitch** | `LatentSpaceGridStitch` | Contact-sheet assembly for latent grids and manifold sweeps. |
+| ** Gimbal Compass Pro** | `GimbalCompass_Pro` | Vector arithmetic ($Target - Origin$) with **Standard**, **Normalized**, **Orthogonal Projection**, and **Blend Overlay** modes plus localized mask guidance. |
+| ** Gimbal Manifold Explorer** | `GimbalManifold_Explorer` | 2D topological manifold slice generator across independent X/Y vectors with true $\mu$-centered SLERP following the high-probability Gaussian Annulus shell. |
+| ** Gimbal Circular Orbit** | `GimbalCircularOrbit` | Constant-radius closed-loop spherical orbits for seamless looping animations and harmonic latent tours. |
+| ** Gimbal Waypoint Spline** | `GimbalWaypointSpline` | Continuous Catmull-Rom spherical spline flight paths through $N$ arbitrary latent keypoints with constant geodesic velocity. |
+| ** Gimbal Semantic Slider** | `Gimbal_SemanticSlider` | Real-time PCA/SVD decomposition extracting orthogonal variance directions for independent attribute modulation. |
+| ** Gimbal Cross-Modal Bridge** | `Gimbal_CrossModalBridge` | Multimodal text-to-latent projection steering diffusion representations via keyword heuristics or CLIP pooled embeddings. |
+| ** Gimbal Likeness Isolator** | `LikenessVectorIsolator` | Dynamic LoRA probe isolating identity tokens from stylistic tokens in the CLIP text-encoder. |
+| ** Gimbal Grid Stitch** | `LatentSpaceGridStitch` | Contact-sheet assembly for latent grids and manifold sweeps. |
 
 ### 2. Subspace & Channel Manipulation
 | Node | Class Name | Description |
 | :--- | :--- | :--- |
-| **🔀 Gimbal Channel Split** | `GimbalChannelSplit` | Deconstructs latent tensors into independent frequency/structural channel bands (SDXL 4-ch, FLUX/SD3 16-ch). |
-| **🔁 Gimbal Channel Merge** | `GimbalChannelMerge` | Reconstructs full multidimensional latent tensors from decoupled channel subspaces. |
-| **🎛️ Gimbal Channel Band Scaler** | `GimbalChannelScale` | Independent per-channel and cluster gain control for fine-grained color, luminance, and texture balance. |
-| **🎯 Gimbal Latent Truncation** | `GimbalTruncation` | Latent variance shrinkage toward the distribution centroid ($z' = \mu + \psi(z - \mu)$) to rein in noisy outlier artifacts. |
-| **⚖️ Gimbal Vector Analogy** | `GimbalVectorAnalogy` | Classic $A - B + C$ concept analogy arithmetic with orthogonal projection and hypersphere norm preservation. |
-| **📍 Gimbal GPS Anchor (Save)** | `GimbalGPS_Anchor` | Extracts waypoints, logs cryptographic hashes, computes statistical moments, and serializes coordinates to disk. |
-| **📥 Gimbal GPS Load (Recall)** | `GimbalGPS_Load` | Restores saved waypoints across sessions and checkpoints with automatic statistical rescaling. |
-| **📊 Gimbal Latent Diagnostics** | `GimbalDiagnostics` | Live telemetry HUD reporting min, max, mean, standard deviation, L2 norm, and channel variance. |
+| ** Gimbal Channel Split** | `GimbalChannelSplit` | Deconstructs latent tensors into independent frequency/structural channel bands (SDXL 4-ch, FLUX/SD3 16-ch). |
+| ** Gimbal Channel Merge** | `GimbalChannelMerge` | Reconstructs full multidimensional latent tensors from decoupled channel subspaces. |
+| ** Gimbal Channel Band Scaler** | `GimbalChannelScale` | Independent per-channel and cluster gain control for fine-grained color, luminance, and texture balance. |
+| ** Gimbal Latent Truncation** | `GimbalTruncation` | Latent variance shrinkage toward the distribution centroid ($z' = \mu + \psi(z - \mu)$) to rein in noisy outlier artifacts. |
+| ** Gimbal Vector Analogy** | `GimbalVectorAnalogy` | Classic $A - B + C$ concept analogy arithmetic with orthogonal projection and hypersphere norm preservation. |
+| ** Gimbal GPS Anchor (Save)** | `GimbalGPS_Anchor` | Extracts waypoints, logs cryptographic hashes, computes statistical moments, and serializes coordinates to disk. |
+| ** Gimbal GPS Load (Recall)** | `GimbalGPS_Load` | Restores saved waypoints across sessions and checkpoints with automatic statistical rescaling. |
+| ** Gimbal Latent Diagnostics** | `GimbalDiagnostics` | Live telemetry HUD reporting min, max, mean, standard deviation, L2 norm, and channel variance. |
 
 ### 3. LAMNr & Disentanglement Research Math
 | Node | Class Name | Description |
 | :--- | :--- | :--- |
-| **🛠️ Gimbal Latent Stabilizer** | `GimbalLatentStabilizer` | Full quality pipeline: bounded coupling scale, dequantization jitter, truncation, and Woodbury low-rank conditional-mean denoise. |
-| **🔣 Gimbal Latent Math** | `GimbalLatentMath` | Generic dispatcher routing 13 core normalizing-flow and disentanglement equations (E1–E12). |
-| **📟 Gimbal Latent Telemetry** | `GimbalLatentTelemetry` | Research-grade out-of-distribution (OOD) metrics: exact log-likelihood, Mahalanobis distance, Total Correlation, and geodesic angular distance. |
+| ** Gimbal Latent Stabilizer** | `GimbalLatentStabilizer` | Full quality pipeline: bounded coupling scale, dequantization jitter, truncation, and Woodbury low-rank conditional-mean denoise. |
+| ** Gimbal Latent Math** | `GimbalLatentMath` | Generic dispatcher routing 13 core normalizing-flow and disentanglement equations (E1–E12). |
+| ** Gimbal Latent Telemetry** | `GimbalLatentTelemetry` | Research-grade out-of-distribution (OOD) metrics: exact log-likelihood, Mahalanobis distance, Total Correlation, and geodesic angular distance. |
 
 ---
 
-## 🧬 Architecture-Aware Latent Mechanics
+##   Architecture-Aware Latent Mechanics
 
 Gimbal automatically recognizes the channel topology of active models:
 
@@ -108,21 +108,21 @@ gimbal-comfy/
 ├── __init__.py                		 # ComfyUI node registration & display names
 ├── AGENTS.md                  		 # Atelier agent protocol & specifications
 ├── pytest.ini                		 # Test discovery configuration
-├── requirements.txt         		 # Minimal PyTorch & ComfyUI dependencies
-├── brand/                   		 # Form & Noise Atelier visual marks & lockups
-│   ├── BRAND.md             		 # Atelier design standards & tokens
+├── requirements.txt         		   # Minimal PyTorch & ComfyUI dependencies
+├── brand/                   	  	 # Form & Noise Atelier visual marks & lockups
+│   ├── BRAND.md             		   # Atelier design standards & tokens
 │   ├── symbol.svg            		 # 24x24u Attitude indicator dial symbol
 │   ├── symbol-micro.svg      		 # Micro variant icon
 │   ├── lockup-dark.svg       		 # Dark mode vector lockup
 │   ├── lockup-light.svg      		 # Light mode vector lockup
-│   ├── avatar-512.svg         	 # 512x512 avatar SVG
-│   ├── gimbal_avatar_512.png  	 # Rasterized 512px avatar
-│   ├── gimbal_lockup_dark.png 	 # High-res hero lockup (dark)
-│   ├── gimbal_lockup_light.png	 # High-res hero lockup (light)
-│   └── gimbal_social_preview.png 	 # Social share card
+│   ├── avatar-512.svg         	   # 512x512 avatar SVG
+│   ├── gimbal_avatar_512.png    	 # Rasterized 512px avatar
+│   ├── gimbal_lockup_dark.png  	 # High-res hero lockup (dark)
+│   ├── gimbal_lockup_light.png	   # High-res hero lockup (light)
+│   └── gimbal_social_preview.png  # Social share card
 ├── docs/                     		 # Research documentation & technical specs
-│   ├── Gimbal_Starter_Guide.md	 # Quick start & flight guide
-│   └── research/              	 # LAMNr & Disentangled representation papers
+│   ├── Gimbal_Starter_Guide.md	   # Quick start & flight guide
+│   └── research/              	   # LAMNr & Disentangled representation papers
 ├── nodes/                    		 # Core PyTorch flight instruments & math
 │   ├── gimbal_compass.py
 │   ├── gimbal_manifold_explorer.py
@@ -142,16 +142,16 @@ gimbal-comfy/
 │   ├── gimbal_semanticslider.py
 │   ├── gimbal_likeness_isolator.py
 │   └── gimbal_grid_stitch.py
-├── web/                       # ComfyUI Frontend extension
-│   └── js/gimbal.js           # Atelier Dark HUD styling & widgets
+├── web/                           # ComfyUI Frontend extension
+│   └── js/gimbal.js               # Atelier Dark HUD styling & widgets
 └── extras/
-    ├── example_workflows/     # Ready-to-use ComfyUI workflow JSONs
-    ├── tests/                 # Comprehensive pytest test suite
-    └── workflows/             # Exploration & testing lab graphs
+    ├── example_workflows/         # Ready-to-use ComfyUI workflow JSONs
+    ├── tests/                     # Comprehensive pytest test suite
+    └── workflows/                 # Exploration & testing lab graphs
 ```
 
 ---
 
 ## 📜 License & Studio Attribution
 
-Released under the **MIT License**. Created with precision by **[Form & Noise Atelier](https://github.com/FormAndNoise)**.
+Released under the **MIT License**. Created by **[Form & Noise](https://github.com/FormAndNoise)**.
