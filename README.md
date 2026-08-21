@@ -23,36 +23,7 @@
 Generative latent spaces are not lottery slots—they are high-dimensional topological manifolds. **Gimbal** treats latent space as a navigable, reproducible coordinate geography: steer along concept axes, map 2D manifold slices with spherical linear interpolation ($\mu$-centered SLERP), execute closed-loop orbits, spline through keypoints with constant geodesic velocity, and stabilize distributions using normalizing flow math.
 
 
-### 2. Visual Mark & Geometry
-- **Metaphor**: An aeronautical artificial horizon / attitude indicator dial consisting of a circular bezel enclosing horizontal datum bars, pitch ladder index lines, and **one solid center heading pip**.
-- **Canvas Geometry**: $24 \times 24$ unit square canvas (bounded to $20 \times 20$ optical area) with $2\text{u}$ corner radii.
-- **Stroke & Line Quality**: Exact $1.75\text{u}$ stroke width (`stroke-width="1.75"`), `fill="none"`, with `stroke-linecap="round"` and `stroke-linejoin="round"`.
-- **The Family Fingerprint**: Exactly **one solid circular state/heading pip** ($r = 1.3\text{u}$ / $2.6\text{u}$ diameter, `fill="currentColor"`, `stroke="none"`) centered at the instrument origin `(12, 12)`.
 
-<p align="center">
-  <img src="brand/symbol.svg" alt="Gimbal Attitude Indicator Mark" width="120" height="120">
-</p>
-
-### 3. Atelier Color Law
-Gimbal's palette is grounded in the contrast between deep instrument voids and crisp paper schematics, accented with high-visibility instrument teal and the signature Form & Noise house metal:
-
-| Token Name | Light Ground (`#F6F1EA` Paper) | Dark Ground (`#0B0B0B` Void) | Purpose |
-| :--- | :--- | :--- | :--- |
-| **Instrument Accent** | `#0E8A8A` (Instrument Teal) | `#35B8B8` (Instrument Teal Dark) | Active vectors, telemetry highlights, heading markers |
-| **House Metal** | `#D45500` (Safety Rust) | `#D45500` (Safety Rust) | Universal Form & Noise Atelier signature metal accent |
-| **Ink Foreground** | `#141414` (Deep Charcoal) | `#F2EEE8` (Warm Off-White) | High-contrast typography, primary iconography, dial rims |
-| **Ground / Canvas** | `#F6F1EA` (Paper Ground) | `#0B0B0B` (Void Ground) | Canvas backdrop, node body background, HUD surfaces |
-| **Muted Hairline** | `#8A8680` | `#6B6763` | Subordinate pitch rungs, coordinate grids, border hairlines |
-
-### 4. Typography Stack
-- **Wordmarks & Display Headers**: **Space Grotesk** (Medium / SemiBold, tracking $-1\%$ to $-2\%$)
-- **Interface & Body Text**: **Inter** (Regular / Medium)
-- **Code, Telemetry & Math**: **IBM Plex Mono** / **JetBrains Mono** (Regular)
-
-### 5. ComfyUI Frontend HUD Styling
-The frontend extension in [`web/js/gimbal.js`](web/js/gimbal.js) themes all Gimbal nodes in ComfyUI with the **Atelier Void** (`#0B0B0B` / `#0E8A8A` / `#35B8B8`) aesthetic, providing real-time vector diagnostics, custom compass dials, and interactive batch telemetry.
-
----
 
 ## 🛠️ Flight Instrument Catalog
 
