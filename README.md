@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/FormAndNoise"><img src="https://img.shields.io/badge/Form%20%26%20Noise-Atelier-0E8A8A?style=flat-square" alt="Form & Noise Atelier"></a>
+  <a href="https://github.com/FormAndNoise"></a>
   <a href="https://github.com/comfyanonymous/ComfyUI"><img src="https://img.shields.io/badge/ComfyUI-Custom%20Nodes-141414?style=flat-square&logo=comfyui" alt="ComfyUI Node Suite"></a>
   <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python" alt="Python 3.10+"></a>
   <a href="https://pytorch.org"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=flat-square&logo=pytorch" alt="PyTorch 2.0+"></a>
