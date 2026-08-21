@@ -1,7 +1,36 @@
+# Byte-compiled / optimized files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Testing & Coverage
 .pytest_cache/
+.coverage
+htmlcov/
+
+# Local databases, scratch logs, and caches
+.crush/
+*.db-shm
+*.db-wal
+*.log
+.claude/
+.cursor/
+.git/
+.github/
+.vscode/
+.vibecheck/
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
+ehthumbs.db
+agents.md
+claude.md
+
+
+# ComfyUI outputs and local temporary artifacts
 output/
+temp/
+extracted_*.py
+

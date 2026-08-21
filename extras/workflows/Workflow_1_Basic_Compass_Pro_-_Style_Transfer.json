@@ -141,7 +141,7 @@
     },
     {
       "id": 9,
-      "type": "WayfinderCompass_Pro",
+      "type": "GimbalCompass_Pro",
       "pos": [
         800,
         550

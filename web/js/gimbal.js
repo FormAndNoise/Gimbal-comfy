@@ -59,14 +59,14 @@ app.registerExtension({
         }
 
         // Dynamic 2D sample counter for Manifold Explorer & Circular Orbit
-        if (nodeData.name === "WayfinderManifold_Explorer" || nodeData.name === "GimbalCircularOrbit") {
+        if (nodeData.name === "GimbalManifold_Explorer" || nodeData.name === "WayfinderManifold_Explorer" || nodeData.name === "GimbalCircularOrbit") {
             const onNodeCreated = nodeType.prototype.onNodeCreated;
             nodeType.prototype.onNodeCreated = function () {
                 const result = onNodeCreated?.apply(this, arguments);
 
                 const updateSampleBadge = () => {
                     let total = 0;
-                    if (nodeData.name === "WayfinderManifold_Explorer") {
+                    if (nodeData.name === "GimbalManifold_Explorer" || nodeData.name === "WayfinderManifold_Explorer") {
                         const gx = this.widgets?.find(w => w.name === "grid_size_x")?.value || 3;
                         const gy = this.widgets?.find(w => w.name === "grid_size_y")?.value || 3;
                         total = gx * gy;

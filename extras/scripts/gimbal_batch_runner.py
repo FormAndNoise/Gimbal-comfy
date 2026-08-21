@@ -14,17 +14,32 @@ widget_mappings = {
     "VAEEncode": [],
     "LoadImage": ["image", "upload"],
     "ShowText|pysssss": ["text"],
+    "GimbalCrossModalBridge": ["llm_instruction", "mapping_mode"],
+    "Gimbal_CrossModalBridge": ["llm_instruction", "mapping_mode"],
     "Wayfinder_CrossModalBridge": ["llm_instruction", "mapping_mode"],
+    "GimbalManifold_Explorer": ["grid_size_x", "grid_size_y", "x_strength", "y_strength", "interpolation_mode", "normalize_vectors", "clamp_output", "clamp_min", "clamp_max", "enable_perf_logging"],
     "WayfinderManifold_Explorer": ["grid_size_x", "grid_size_y", "x_strength", "y_strength", "interpolation_mode", "normalize_vectors", "clamp_output", "clamp_min", "clamp_max", "enable_perf_logging"],
+    "GimbalCompass_Pro": ["strength", "mode", "clamp_output", "clamp_min", "clamp_max", "allow_batch_expand", "ortho_per_channel", "clamp_mask_input", "enable_perf_logging"],
     "WayfinderCompass_Pro": ["strength", "mode", "clamp_output", "clamp_min", "clamp_max", "allow_batch_expand", "ortho_per_channel", "clamp_mask_input", "enable_perf_logging"],
+    "GimbalGPS_Anchor": ["select_index", "save_waypoint", "waypoint_name", "enable_perf_logging"],
     "WayfinderGPS_Anchor": ["select_index", "save_waypoint", "waypoint_name", "enable_perf_logging"],
+    "GimbalSemanticSlider": ["pc_index", "slider_value", "orthogonalize"],
+    "Gimbal_SemanticSlider": ["pc_index", "slider_value", "orthogonalize"],
     "Wayfinder_SemanticSlider": ["pc_index", "slider_value", "orthogonalize"],
-    "WayfinderConceptBlender": ["blend_ratio", "mode"],
-    "Wayfinder_ConceptBlender": ["blend_ratio", "mode"],
+    "GimbalLikenessIsolator": ["lora_name", "strength", "alpha", "likeness_mask"],
+    "LikenessVectorIsolator": ["lora_name", "strength", "alpha", "likeness_mask"],
+    "GimbalConceptBlender": ["blend_ratio", "mode"],
+    "Gimbal_ConceptBlender": ["blend_ratio", "mode"],
+    "GimbalGPS_Load": ["waypoint_name", "restore_mode"],
     "WayfinderGPS_Load": ["waypoint_name", "restore_mode"],
     "LoraLoader": ["lora_name", "strength_model", "strength_clip"],
     "LatentFromBatch": ["batch_index", "length"],
-    "LikenessVectorIsolator": ["lora_name", "strength", "alpha", "likeness_mask"]
+    "GimbalVectorAnalogy": ["strength", "orthogonalize", "preserve_norm"],
+    "GimbalTruncation": ["psi", "rescale_norm", "channel_adaptive"],
+    "GimbalCircularOrbit": ["num_frames", "radius", "elevation", "closed_loop"],
+    "GimbalWaypointSpline": ["num_frames", "tension", "closed_loop"],
+    "GimbalChannelScale": ["scale_c0", "scale_c1", "scale_c2", "scale_c3"],
+    "GimbalDiagnostics": ["tag", "print_to_console"]
 }
 
 def convert_to_api(path):
@@ -95,7 +110,7 @@ def convert_to_flux(api_data):
     flux_data["201"] = {
         "class_type": "DualCLIPLoader",
         "inputs": {
-            "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+            "clip_name1": "t5\\t5xxl_fp8_e4m3fn.safetensors",
             "clip_name2": "clip_l.safetensors",
             "type": "flux"
         }
@@ -145,7 +160,7 @@ def run_tests():
             print("WARNING: ComfyUI is not reachable on 8188 or 8000. Will only save json files.")
             COMFY_URL = None
 
-    workflows = glob.glob("../example_workflows/Wayfinder_0*.json")
+    workflows = glob.glob("../example_workflows/Gimbal_0*.json")
     
     os.makedirs("../example_workflows/api", exist_ok=True)
     

@@ -14,8 +14,8 @@ from gimbal_channel_matrix import GimbalChannelSplit, GimbalChannelMerge, Gimbal
 from gimbal_truncation import GimbalTruncation
 from gimbal_vector_analogy import GimbalVectorAnalogy
 from gimbal_diagnostics import GimbalDiagnostics
-from Wayfinder_compass import WayfinderCompass_Pro
-from wayfindermanifold_explorer import WayfinderManifold_Explorer
+from gimbal_compass import GimbalCompass_Pro, WayfinderCompass_Pro
+from gimbal_manifold_explorer import GimbalManifold_Explorer, WayfinderManifold_Explorer
 
 def test_circular_orbit():
     orbit_node = GimbalCircularOrbit()

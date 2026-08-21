@@ -36,6 +36,7 @@ class GimbalCircularOrbit:
                 "direction_x": ("LATENT",),
                 "direction_y": ("LATENT",),
                 "mask": ("MASK",),
+                "mu_centroid": ("LATENT", {"tooltip": "Population centroid for hypersphere norm projection. If absent, center_latent radius is used."}),
             }
         }
 
@@ -77,6 +78,7 @@ class GimbalCircularOrbit:
         direction_x: Optional[Dict[str, Any]] = None,
         direction_y: Optional[Dict[str, Any]] = None,
         mask: Optional[torch.Tensor] = None,
+        mu_centroid: Optional[Dict[str, Any]] = None,
     ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         t_start = time.perf_counter()
         
@@ -109,7 +111,17 @@ class GimbalCircularOrbit:
             # Target radius scaling (normalized to standard normal scale sqrt(D))
             norm_scale = math.sqrt(D) * radius
             center_f = center_s.float()
-            center_norm = center_f.reshape(B, -1).norm(dim=1, keepdim=True).clamp(min=1e-8)
+            # Target radius: use mu_centroid norm if provided, else center norm
+            if mu_centroid is not None:
+                mu_s = self._extract_samples(mu_centroid, "mu_centroid")
+                mu_s = mu_s.to(device=device, dtype=dtype)
+                if mu_s.shape[-2:] != (H, W):
+                    mu_s = F.interpolate(mu_s.float(), size=(H, W), mode="bilinear", align_corners=False).to(dtype)
+                target_shell_norm = mu_s.float().reshape(mu_s.shape[0], -1).norm(dim=1, keepdim=True).clamp(min=1e-8)
+                if target_shell_norm.shape[0] == 1 and B > 1:
+                    target_shell_norm = target_shell_norm.expand(B, -1)
+            else:
+                target_shell_norm = center_f.reshape(B, -1).norm(dim=1, keepdim=True).clamp(min=1e-8)
 
             # 2. Compute orbit trajectory points
             theta = torch.linspace(0, 2 * math.pi, steps + 1, device=device, dtype=torch.float32)[:-1]
@@ -134,10 +146,10 @@ class GimbalCircularOrbit:
                 sample_t = center_f + delta
 
                 if preserve_hypersphere_norm:
-                    # Rescale to maintain initial center radius
+                    # Rescale to maintain target shell radius (μ-centroid or center)
                     sample_flat = sample_t.reshape(B, -1)
                     s_norm = sample_flat.norm(dim=1, keepdim=True).clamp(min=1e-8)
-                    sample_t = ((sample_flat / s_norm) * center_norm).reshape(sample_t.shape)
+                    sample_t = ((sample_flat / s_norm) * target_shell_norm).reshape(sample_t.shape)
 
                 # Mask blending if mask is provided
                 if mask is not None:
@@ -158,6 +170,7 @@ class GimbalCircularOrbit:
                 "center_shape": list(center_s.shape),
                 "output_batch_shape": list(out_samples.shape),
                 "hypersphere_norm_preserved": preserve_hypersphere_norm,
+                "norm_anchor": "mu_centroid" if mu_centroid is not None else "center_latent",
                 "execution_time_ms": round((time.perf_counter() - t_start) * 1000, 3),
             }
 

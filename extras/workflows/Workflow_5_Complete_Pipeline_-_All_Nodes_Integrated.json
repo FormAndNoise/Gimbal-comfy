@@ -117,7 +117,7 @@
     },
     {
       "id": 7,
-      "type": "Wayfinder_SemanticSlider",
+      "type": "GimbalSemanticSlider",
       "pos": [
         680,
         150
@@ -135,7 +135,7 @@
     },
     {
       "id": 8,
-      "type": "Wayfinder_CrossModalBridge",
+      "type": "GimbalCrossModalBridge",
       "pos": [
         680,
         480
@@ -152,7 +152,7 @@
     },
     {
       "id": 9,
-      "type": "WayfinderCompass_Pro",
+      "type": "GimbalCompass_Pro",
       "pos": [
         1080,
         150
@@ -175,7 +175,7 @@
     },
     {
       "id": 10,
-      "type": "WayfinderManifold_Explorer",
+      "type": "GimbalManifold_Explorer",
       "pos": [
         1080,
         580
@@ -200,7 +200,7 @@
     },
     {
       "id": 11,
-      "type": "WayfinderGPS_Anchor",
+      "type": "GimbalGPS_Anchor",
       "pos": [
         1500,
         580
@@ -363,7 +363,7 @@
     },
     {
       "id": 21,
-      "type": "WayfinderCompass_Pro",
+      "type": "GimbalCompass_Pro",
       "pos": [
         680,
         720
@@ -462,7 +462,7 @@
     },
     {
       "id": 26,
-      "type": "WayfinderCompass_Pro",
+      "type": "GimbalCompass_Pro",
       "pos": [
         680,
         1200

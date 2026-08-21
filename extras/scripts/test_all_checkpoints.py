@@ -1,7 +1,7 @@
 import json
 import urllib.request
 import urllib.error
-from wayfinder_batch_runner import convert_to_api
+from gimbal_batch_runner import convert_to_api
 
 COMFY_URL = "http://127.0.0.1:8000"
 
@@ -15,7 +15,7 @@ def get_checkpoints():
         return []
 
 def run_all_checkpoints():
-    workflow_path = "../example_workflows/Wayfinder_01_ConceptBlender.json"
+    workflow_path = "../example_workflows/Gimbal_01_ConceptBlender.json"
     api_data = convert_to_api(workflow_path)
     
     # find checkpoint node

@@ -1,0 +1,183 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "floor_plan_reference.png",
+      "upload": "image"
+    }
+  },
+  "3": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "2",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "interior architectural rendering, furnished floor plan, natural light, clean lines, high detail, professional photography",
+      "clip": [
+        "1",
+        1
+      ]
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "blurry, distorted geometry, warped walls, low quality, watermark, text",
+      "clip": [
+        "1",
+        1
+      ]
+    }
+  },
+  "6": {
+    "class_type": "GimbalCrossModalBridge",
+    "inputs": {
+      "llm_instruction": "warm golden saturated",
+      "mapping_mode": "Keyword_Heuristics",
+      "base_latent": [
+        "3",
+        0
+      ]
+    }
+  },
+  "7": {
+    "class_type": "GimbalCrossModalBridge",
+    "inputs": {
+      "llm_instruction": "cool gritty desaturated",
+      "mapping_mode": "Keyword_Heuristics",
+      "base_latent": [
+        "3",
+        0
+      ]
+    }
+  },
+  "8": {
+    "class_type": "GimbalManifold_Explorer",
+    "inputs": {
+      "grid_size_x": 3,
+      "grid_size_y": 3,
+      "x_strength": 0.7,
+      "y_strength": 0.7,
+      "interpolation_mode": "Slerp",
+      "normalize_vectors": true,
+      "clamp_output": true,
+      "clamp_min": -8.0,
+      "clamp_max": 8.0,
+      "enable_perf_logging": false,
+      "center_latent": [
+        "3",
+        0
+      ],
+      "x_vector": [
+        "6",
+        0
+      ],
+      "y_vector": [
+        "7",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "KSampler",
+    "inputs": {
+      "seed": 8080,
+      "control_after_generate": "fixed",
+      "steps": 22,
+      "cfg": 7.0,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 0.35,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    }
+  },
+  "11": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "Gimbal/arch_material_grid",
+      "images": [
+        "10",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "GimbalGPS_Anchor",
+    "inputs": {
+      "select_index": 4,
+      "save_waypoint": true,
+      "waypoint_name": "client_approved_palette",
+      "enable_perf_logging": true,
+      "latent_batch": [
+        "9",
+        0
+      ],
+      "gimbal_meta": [
+        "8",
+        1
+      ]
+    }
+  },
+  "13": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {
+      "text": [
+        "8",
+        2
+      ]
+    }
+  },
+  "14": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {
+      "text": [
+        "12",
+        2
+      ]
+    }
+  }
+}

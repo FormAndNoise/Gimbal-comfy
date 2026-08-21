@@ -159,7 +159,7 @@
     },
     {
       "id": 10,
-      "type": "Wayfinder_SemanticSlider",
+      "type": "GimbalSemanticSlider",
       "pos": [
         1200,
         400

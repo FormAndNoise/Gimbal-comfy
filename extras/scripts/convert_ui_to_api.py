@@ -10,13 +10,13 @@ widget_mappings = {
     "CheckpointLoaderSimple": ["ckpt_name"],
     "SaveImage": ["filename_prefix"],
     "VAEDecode": [],
-    "Wayfinder_CrossModalBridge": ["llm_instruction", "mapping_mode"],
-    "WayfinderManifold_Explorer": ["grid_size_x", "grid_size_y", "x_strength", "y_strength", "interpolation_mode", "normalize_vectors", "clamp_output", "clamp_min", "clamp_max", "enable_perf_logging"],
-    "WayfinderCompass_Pro": ["strength", "mode", "clamp_output", "clamp_min", "clamp_max", "allow_batch_expand", "ortho_per_channel", "clamp_mask_input", "enable_perf_logging"],
-    "WayfinderGPS_Anchor": ["blend_factor", "anchor_type"],
-    "Wayfinder_SemanticSlider": ["attribute", "strength", "interpolation", "clamp_output"],
-    "WayfinderConceptBlender": ["blend_ratio", "mode"],
-    "Wayfinder_ConceptBlender": ["blend_ratio", "mode"],
+    "Gimbal_CrossModalBridge": ["llm_instruction", "mapping_mode"],
+    "GimbalManifold_Explorer": ["grid_size_x", "grid_size_y", "x_strength", "y_strength", "interpolation_mode", "normalize_vectors", "clamp_output", "clamp_min", "clamp_max", "enable_perf_logging"],
+    "GimbalCompass_Pro": ["strength", "mode", "clamp_output", "clamp_min", "clamp_max", "allow_batch_expand", "ortho_per_channel", "clamp_mask_input", "enable_perf_logging"],
+    "GimbalGPS_Anchor": ["blend_factor", "anchor_type"],
+    "Gimbal_SemanticSlider": ["attribute", "strength", "interpolation", "clamp_output"],
+    "GimbalConceptBlender": ["blend_ratio", "mode"],
+    "Gimbal_ConceptBlender": ["blend_ratio", "mode"],
     "LoraLoader": ["lora_name", "strength_model", "strength_clip"]
 }
 

@@ -103,7 +103,7 @@
     },
     {
       "id": 7,
-      "type": "Wayfinder_CrossModalBridge",
+      "type": "GimbalCrossModalBridge",
       "pos": [
         800,
         300
@@ -120,7 +120,7 @@
     },
     {
       "id": 8,
-      "type": "WayfinderCompass_Pro",
+      "type": "GimbalCompass_Pro",
       "pos": [
         1350,
         300
@@ -169,7 +169,7 @@
     },
     {
       "id": 11,
-      "type": "Wayfinder_CrossModalBridge",
+      "type": "GimbalCrossModalBridge",
       "pos": [
         800,
         580
@@ -186,7 +186,7 @@
     },
     {
       "id": 12,
-      "type": "WayfinderCompass_Pro",
+      "type": "GimbalCompass_Pro",
       "pos": [
         1350,
         580

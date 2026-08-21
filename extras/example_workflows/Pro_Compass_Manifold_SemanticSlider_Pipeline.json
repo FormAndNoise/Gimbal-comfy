@@ -28,7 +28,7 @@
     }
   },
   "5": {
-    "class_type": "WayfinderCompass_Pro",
+    "class_type": "GimbalCompass_Pro",
     "inputs": {
       "base_latent": ["4", 0],
       "target_latent": ["4", 0],
@@ -45,7 +45,7 @@
     }
   },
   "6": {
-    "class_type": "Wayfinder_CrossModalBridge",
+    "class_type": "GimbalCrossModalBridge",
     "inputs": {
       "llm_instruction": "make it brighter and more vivid",
       "base_latent": ["5", 0],
@@ -53,7 +53,7 @@
     }
   },
   "7": {
-    "class_type": "WayfinderManifold_Explorer",
+    "class_type": "GimbalManifold_Explorer",
     "inputs": {
       "center_latent": ["4", 0],
       "x_vector": ["6", 0],
@@ -71,18 +71,18 @@
     }
   },
   "8": {
-    "class_type": "WayfinderGPS_Anchor",
+    "class_type": "GimbalGPS_Anchor",
     "inputs": {
       "latent_batch": ["7", 0],
       "select_index": 4,
       "save_waypoint": true,
       "waypoint_name": "test_center",
       "enable_perf_logging": true,
-      "wayfinder_meta": ["7", 1]
+      "gimbal_meta": ["7", 1]
     }
   },
   "9": {
-    "class_type": "Wayfinder_SemanticSlider",
+    "class_type": "GimbalSemanticSlider",
     "inputs": {
       "latent_batch": ["7", 0],
       "base_latent": ["8", 0],
@@ -117,7 +117,7 @@
     "class_type": "SaveImage",
     "inputs": {
       "images": ["11", 0],
-      "filename_prefix": "wayfinder_test"
+      "filename_prefix": "gimbal_test"
     }
   }
 }

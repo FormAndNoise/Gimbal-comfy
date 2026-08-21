@@ -20,7 +20,7 @@ def queue_prompt(prompt_workflow):
 def main():
     # Load the API workflow
     try:
-        with open("example_workflows/api/API_Wayfinder_03_ManifoldGrid.json", "r") as f:
+        with open("example_workflows/api/API_Gimbal_03_ManifoldGrid.json", "r") as f:
             prompt = json.load(f)
     except Exception as e:
         print(f"Error reading workflow: {e}")
@@ -35,13 +35,13 @@ def main():
     for node_id in nodes_to_delete:
         del prompt[node_id]
 
-    print("Queueing Wayfinder_03_ManifoldGrid.json via API...")
+    print("Queueing Gimbal_03_ManifoldGrid.json via API...")
     result = queue_prompt(prompt)
     if result:
         print(f"Successfully queued! Prompt ID: {result['prompt_id']}")
         print("Check the ComfyUI terminal or UI for generation progress.")
     else:
-        print("Failed to queue. Make sure ComfyUI is running and Wayfinder nodes are loaded.")
+        print("Failed to queue. Make sure ComfyUI is running and Gimbal nodes are loaded.")
 
 if __name__ == "__main__":
     main()

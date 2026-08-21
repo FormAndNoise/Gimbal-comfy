@@ -4,6 +4,10 @@ import torch
 import torch.nn.functional as F
 import warnings
 from typing import Dict, Any, Tuple, List, Optional
+try:
+    from .gimbal_slerp import slerp_pair_mu_centered, slerp_pair_origin_centered, compute_batch_centroid
+except ImportError:
+    from gimbal_slerp import slerp_pair_mu_centered, slerp_pair_origin_centered, compute_batch_centroid
 
 class GimbalWaypointSpline:
     """
@@ -28,33 +32,16 @@ class GimbalWaypointSpline:
                 "loop_trajectory": ("BOOLEAN", {"default": False, "tooltip": "Connects last waypoint back to first for looping"}),
                 "tension": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.05, "display": "slider"}),
                 "constant_velocity": ("BOOLEAN", {"default": True, "tooltip": "Reparameterizes by geodesic arc length for uniform speed"}),
+            },
+            "optional": {
+                "mu_anchor": ("LATENT", {"tooltip": "Population centroid for μ-centered Slerp. If absent, the mean of all waypoints is used."}),
             }
         }
 
     @staticmethod
     def _slerp_pair(a: torch.Tensor, b: torch.Tensor, t: float, eps: float = 1e-7) -> torch.Tensor:
-        """Robust spherical linear interpolation between two 1D vectors."""
-        a_norm = a.norm().clamp(min=eps)
-        b_norm = b.norm().clamp(min=eps)
-        a_hat = a / a_norm
-        b_hat = b / b_norm
-
-        dot = (a_hat * b_hat).sum().clamp(-1.0 + eps, 1.0 - eps)
-        omega = math.acos(dot.item())
-
-        if omega < 1e-4:
-            # Parallel or nearly parallel fallback
-            res = (1.0 - t) * a + t * b
-            return res
-
-        sin_omega = math.sin(omega)
-        w_a = math.sin((1.0 - t) * omega) / sin_omega
-        w_b = math.sin(t * omega) / sin_omega
-
-        # Interpolate direction and magnitude smoothly
-        interp_dir = w_a * a_hat + w_b * b_hat
-        target_radius = (1.0 - t) * a_norm + t * b_norm
-        return interp_dir * target_radius
+        """Legacy origin-centered Slerp for flattened vector pairs. Delegates to shared module."""
+        return slerp_pair_origin_centered(a, b, t, eps)
 
     def interpolate_waypoints(
         self,
@@ -64,6 +51,7 @@ class GimbalWaypointSpline:
         loop_trajectory: bool,
         tension: float,
         constant_velocity: bool,
+        mu_anchor: Optional[Dict[str, Any]] = None,
     ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         t_start = time.perf_counter()
 
@@ -81,6 +69,18 @@ class GimbalWaypointSpline:
 
             # Flatten waypoints for geometric math
             w_flat = [s[i].reshape(-1).float() for i in range(N)]
+
+            # Compute μ centroid for μ-centered Slerp
+            if mu_anchor is not None:
+                mu_s = mu_anchor.get("samples")
+                if mu_s is not None and mu_s.ndim == 4:
+                    mu_flat = mu_s.mean(dim=0).reshape(-1).float().to(device=device)
+                else:
+                    mu_flat = torch.stack(w_flat).mean(dim=0)
+            else:
+                # Default: empirical mean of all waypoints
+                mu_flat = torch.stack(w_flat).mean(dim=0)
+
             if loop_trajectory:
                 w_flat.append(w_flat[0])
             
@@ -89,9 +89,9 @@ class GimbalWaypointSpline:
             # Compute geodesic arc lengths between consecutive waypoints
             seg_lengths = []
             for i in range(num_segments):
-                a_norm = w_flat[i].norm().clamp(min=1e-7)
-                b_norm = w_flat[i+1].norm().clamp(min=1e-7)
-                dot = (w_flat[i] / a_norm * (w_flat[i+1] / b_norm)).sum().clamp(-1.0 + 1e-7, 1.0 - 1e-7)
+                a_norm = (w_flat[i] - mu_flat).norm().clamp(min=1e-7)
+                b_norm = (w_flat[i+1] - mu_flat).norm().clamp(min=1e-7)
+                dot = (((w_flat[i] - mu_flat) / a_norm) * ((w_flat[i+1] - mu_flat) / b_norm)).sum().clamp(-1.0 + 1e-7, 1.0 - 1e-7)
                 seg_lengths.append(math.acos(dot.item()))
 
             total_arc_length = sum(seg_lengths)
@@ -129,10 +129,10 @@ class GimbalWaypointSpline:
 
                 for t in t_values:
                     if spline_mode == "Spherical_SLERP":
-                        pt = self._slerp_pair(p1, p2, t)
+                        pt = slerp_pair_mu_centered(p1, p2, t, mu_flat)
                     elif spline_mode == "Cosine_Ease":
                         t_cos = (1.0 - math.cos(t * math.pi)) / 2.0
-                        pt = self._slerp_pair(p1, p2, t_cos)
+                        pt = slerp_pair_mu_centered(p1, p2, t_cos, mu_flat)
                     elif spline_mode == "Catmull_Rom_Spline":
                         # Spherical Catmull-Rom tangent projection
                         t2 = t * t
@@ -145,8 +145,8 @@ class GimbalWaypointSpline:
                     else:  # Normalized_Linear
                         pt = (1.0 - t) * p1 + t * p2
                         # Project onto spherical radius
-                        target_r = (1.0 - t) * p1.norm() + t * p2.norm()
-                        pt = (pt / pt.norm().clamp(min=1e-7)) * target_r
+                        target_r = (1.0 - t) * (p1 - mu_flat).norm() + t * (p2 - mu_flat).norm()
+                        pt = mu_flat + ((pt - mu_flat) / (pt - mu_flat).norm().clamp(min=1e-7)) * target_r
 
                     path_tensors.append(pt.reshape(1, C, H, W).to(dtype=dtype, device=device))
 
@@ -160,6 +160,7 @@ class GimbalWaypointSpline:
                 "total_generated_steps": out_samples.shape[0],
                 "geodesic_arc_lengths": [round(l, 4) for l in seg_lengths],
                 "constant_velocity_engaged": constant_velocity,
+                "slerp_anchor": "external_mu" if mu_anchor is not None else "waypoint_mean",
                 "execution_time_ms": round((time.perf_counter() - t_start) * 1000, 3),
             }
 

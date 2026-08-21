@@ -23,6 +23,9 @@ Latent space flight instruments for visual generative artists (ComfyUI Custom No
 9. **`GimbalVectorAnalogy`**: Classic $A - B + C$ GAN concept analogy arithmetic with orthogonal projection and norm preservation.
 10. **`GimbalGPS_Anchor` & `GPS_Load`**: Cryptographic coordinate hashing, disk caching, and statistical rescaling across checkpoints.
 11. **`GimbalDiagnostics`**: Live telemetry reporting min, max, mean, std, L2 norm, and channel variance.
+12. **`GimbalLatentStabilizer`** (LAMNr): Full quality pipeline - bounded coupling scale, dequantization jitter, truncation, Woodbury low-rank conditional-mean denoise.
+13. **`GimbalLatentMath`** (LAMNr): Dispatcher node routing every equation (E1-E12) through generic inputs.
+14. **`GimbalLatentTelemetry`** (LAMNr): Research-grade OOD metrics - exact log-likelihood, Mahalanobis, Total Correlation, geodesic angular distance.
 
 ### ComfyUI Frontend Extension
 - `web/js/gimbal.js`: Atelier Dark `#0B0B0B` / `#0E8A8A` HUD styling, live tensor diagnostics widgets, and dynamic grid sample calculations.
