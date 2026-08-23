@@ -1,5 +1,5 @@
 [project]
-name = "gimbal-comfy"
+name = "Gimbal-Comfy"
 description = "ComfyUI precision flight instruments for latent space navigation, vector steering, and structural stabilization."
 version = "1.0.0"
 license = "MIT"
@@ -21,6 +21,6 @@ Documentation = "https://github.com/FormAndNoise/Gimbal-comfy/wiki"
 
 [tool.comfy]
 PublisherId = "aarikw"
-DisplayName = "Gimbal-comfy"
-Icon = ""
+DisplayName = "formandnoise"
+Icon = "https://github.com/FormAndNoise/Gimbal-comfy/blob/main/assets/brand/avatar-512.svg"
 includes = []
