@@ -1,0 +1,26 @@
+[project]
+name = "gimbal-comfy"
+description = "ComfyUI precision flight instruments for latent space navigation, vector steering, and structural stabilization."
+version = "1.0.0"
+license = "MIT"
+
+classifiers = [
+    "Operating System :: OS Independent",
+    "Environment :: GPU :: NVIDIA CUDA",
+    "Environment :: GPU :: AMD ROCm",
+    "Environment :: GPU :: Apple Metal",
+    "Environment :: GPU :: Intel Arc",
+    "Environment :: NPU :: Huawei Ascend",
+]
+dependencies = ["torch", "numpy", "pillow"]
+
+[project.urls]
+Repository = "https://github.com/FormAndNoise/Gimbal-comfy"
+Documentation = "https://github.com/FormAndNoise/Gimbal-comfy/wiki"
+"Bug Tracker" = "https://github.com/FormAndNoise/Gimbal-comfy/issues"
+
+[tool.comfy]
+PublisherId = "aarikw"
+DisplayName = "Gimbal-comfy"
+Icon = ""
+includes = []

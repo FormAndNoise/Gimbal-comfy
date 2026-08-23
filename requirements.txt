@@ -1,4 +1,3 @@
 torch
 numpy
-PyQt6
 pillow
