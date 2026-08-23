@@ -21,6 +21,6 @@ Documentation = "https://github.com/FormAndNoise/Gimbal-comfy/wiki"
 
 [tool.comfy]
 PublisherId = "aarikw"
-DisplayName = "formandnoise"
+DisplayName = "Gimbal-ComfyUI"
 Icon = "https://github.com/FormAndNoise/Gimbal-comfy/blob/main/assets/brand/avatar-512.svg"
 includes = []

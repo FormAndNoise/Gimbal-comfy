@@ -1,42 +1,63 @@
-# Byte-compiled / optimized files
+# =======================================================================
+# ComfyUI Node Loader Ignore List (.comfyignore)
+# Prevents ComfyUI from attempting to load non-node scripts as custom nodes
+# =======================================================================
+
+# Version Control & Metadata
+.git/
+.github/
+.gitattributes
+.gitignore
+.comfyignore
+
+# Documentation & Wiki
+docs/
+wiki/
+*.md
+*.rst
+LICENSE
+NOTICE
+
+# Visual Assets & Workflow Examples
+assets/
+workflows/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.svg
+*.json
+
+# Test Suites & Benchmarks
+test_suite/
+tests/
+test/
+*_test.py
+test_*.py
+benchmark*.py
+
+# Python Bytecode & Cache
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Testing & Coverage
 .pytest_cache/
 .coverage
 htmlcov/
-test_results/
 
-# Local databases, scratch logs, IDEs, and caches
-.crush/
-*.db-shm
-*.db-wal
-*.log
-.claude/
-.cursor/
+# Environments & Packaging
+venv/
+.venv/
+env/
+dist/
+build/
+*.egg-info/
+
+
+# IDE & Editor Configs
 .vscode/
-.vibecheck/
-.obsidian/
-.agents/
-*.canvas
-.git/
-docs/
-assets/
-.obsidian/
-pytest_cache/
-test_suite/generated
-# OS generated files
+.idea/
+*.swp
+*.swo
 .DS_Store
-.DS_Store?
-._*
 Thumbs.db
-ehthumbs.db
-
-# ComfyUI outputs, test results, and local temporary artifacts
-output/
-outputs/
-temp/
-extras/
-extracted_*.py
