@@ -6,7 +6,7 @@
 
 ## 🏛️ Interactive HTML HUD Galleries
 
-The handoff package includes three standalone **Dark HUD HTML Galleries** featuring real-time image zooming, metadata inspection, and telemetry logs:
+
 
 | Gallery File | Location | Content Summary |
 | :--- | :--- | :--- |
