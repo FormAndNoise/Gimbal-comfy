@@ -312,7 +312,44 @@ For power users, machine learning engineers, and researchers seeking the mathema
 
 ---
 
+## 🙏 Acknowledgments & Co-Pilot Attribution
 
+This project exists at the intersection of human architectural direction and high-dimensional synthetic collaboration. Deep gratitude is owed to the multi-agent AI flight crew who filled specialized roles across mathematical modeling, CUDA optimization, documentation drafting, and refactoring:
+
+### The AI Flight Deck
+* **Anthropic:** Claude 3.5 / 3.7 Sonnet *(Architectural refactoring & core node logic)*
+* **Google DeepMind:** Gemini 3.1 Pro & Gemini 3.7 Flash *(Research synthesis & telemetry pipeline design)*
+* **DeepSeek:** DeepSeek V3 / R1 / 4 Pro *(low-rank tensor calculus)*
+* **Moonshot AI:** Kimi k3 *(Long-context analysis & codebase indexing)*
+* **Zhipu AI:** GLM-5.2 *(Mathematical derivations & logic audits)*
+* **Xiaomi:** MiMo 2.5 Pro *(Subspace routing & auxiliary pipeline support)*
+* **Laguna:** Laguna S2 *(Specialized inference tasks and workflow testing)*
+
+---
+
+### Foundational Grounding
+* **Christina:** For the breath, clarity, and perseverance through deep debugging sessions.
+* **Kyle:** For endless patience, belief, and foundational support behind the scenes.
+
+## 📚 Research & Theoretical Foundations
+
+Gimbal's mathematical core and latent flight dynamics are grounded in foundational research across generative models, high-dimensional geometry, and subspace decomposition:
+
+* **Latent Diffusion Architectures:**
+  * Rombach, R., Blattmann, A., Lorenz, D., Esser, P., & Ommer, B. (2022). *High-Resolution Image Synthesis with Latent Diffusion Models*. CVPR.
+  * Ho, J., Jain, A., & Abbeel, P. (2020). *Denoising Diffusion Probabilistic Models*. NeurIPS.
+
+* **Spherical Geometry & Interpolation Dynamics:**
+  * Shoemake, K. (1985). *Animating Rotation with Quaternion Curves (SLERP)*. ACM SIGGRAPH.
+  * Blum, A., Hopcroft, J., & Kannan, R. (2020). *Foundations of Data Science* (Geometry of High Dimensions & Annulus Theorem). Cambridge University Press.
+
+* **Subspace Decomposition & Orthogonal Steering:**
+  * Härkönen, E., Hertzmann, A., Lehtinen, J., & Paris, S. (2020). *Ganspace: Discovering Interpretable GAN Controls*. NeurIPS.
+  * Shen, Y., Gu, J., Tang, X., & Zhou, B. (2020). *Interpreting the Latent Space for Semantic Face Editing*. IEEE TPAMI.
+
+* **Statistical Telemetry & Manifold Regularization:**
+  * Lee, K., Lee, K., Lee, H., & Shin, J. (2018). *A Simple Unified Framework for Detecting Out-of-Distribution Samples (Mahalanobis Distance)*. NeurIPS.
+  * Brock, A., Donahue, J., & Simonyan, K. (2018). *Large Scale GAN Training for High Fidelity Natural Image Synthesis (Truncation)*. ICLR.
 
 
 </div>
