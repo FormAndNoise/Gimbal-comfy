@@ -7,30 +7,31 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
+test_results/
 
-# Local databases, scratch logs, and caches
+# Local databases, scratch logs, IDEs, and caches
 .crush/
 *.db-shm
 *.db-wal
 *.log
 .claude/
 .cursor/
-.git/
-.github/
 .vscode/
 .vibecheck/
+.obsidian/
+.agents/
+*.canvas
+
 # OS generated files
 .DS_Store
 .DS_Store?
 ._*
 Thumbs.db
 ehthumbs.db
-agents.md
-claude.md
 
-
-# ComfyUI outputs and local temporary artifacts
+# ComfyUI outputs, test results, and local temporary artifacts
 output/
+outputs/
 temp/
+extras/
 extracted_*.py
-
