@@ -71,4 +71,4 @@ The handoff package includes three standalone **Dark HUD HTML Galleries** featur
 
 ---
 
-*Part of the Gimbal Node Suite — Form & Noise Atelier*
+*Part of the Gimbal Node Suite — Form & Noise*
