@@ -4,7 +4,7 @@ Generative AI isn't just magic—it's math. The "Latent Space" where Stable Diff
 
 The **Wayfinder Node Suite** gives you the flight instruments needed to deliberately navigate that landscape. Instead of rolling the dice with random seeds and text prompts, Wayfinder lets you extract coordinates, steer using vector math, and chart new territories using interpolation grids.
 
-![Hero Image: A beautiful 3x3 latent space interpolation grid or an abstract representation of navigating latent space](images/hero_banner.jpg)
+![Hero Image: Latent Space Navigation](../../assets/brand/gimbal_social_preview.png)
 
 ---
 
@@ -13,7 +13,7 @@ The **Wayfinder Node Suite** gives you the flight instruments needed to delibera
 ### 1. 🧭 `WayfinderCompass_Pro` (The Steering Wheel)
 This node performs high-precision vector arithmetic on your latent images.
 
-![Screenshot of the Compass node wired up with a before/after visual showing Image A + Image B = Hybrid Image C](images/compass_example.jpg)
+![Compass Pro Example](../../assets/brand/gimbal_02_cinematic_steering_showcase.png)
 
 *   **What it does:** Allows you to take a `base_latent`, and push it towards a `target_latent`.
 *   **How to wire it:** 
@@ -25,7 +25,7 @@ This node performs high-precision vector arithmetic on your latent images.
 ### 2. 🗺️ `WayfinderManifold_Explorer` (The Map Maker)
 Generates a 2D batch grid of latent variations.
 
-![A 3x3 grid of images output by the Manifold Explorer, showing smooth transitions from one concept on the X axis to another on the Y axis](images/manifold_grid.jpg)
+![Manifold Explorer Grid](../../assets/brand/gimbal_08_harmonic_orbiter_showcase.png)
 
 *   **What it does:** Taking a center point, it creates a grid of latent variations expanding outward along an X-axis and a Y-axis.
 *   **How to wire it:**
@@ -37,7 +37,7 @@ Generates a 2D batch grid of latent variations.
 ### 3. 🌉 `Wayfinder_CrossModalBridge` (The Translator)
 Converts text instructions directly into latent directional vectors.
 
-![Screenshot of the CrossModalBridge node translating the text 'make it brighter' into a vector output](images/crossmodal_bridge.jpg)
+![CrossModalBridge Example](../../assets/brand/gimbal_04_semantic_slider_showcase.png)
 
 *   **What it does:** Rather than running a full CLIP encode, it maps words like "bright" or "vivid" to heuristic latent channel changes.
 *   **How to wire it:** Type "make it brighter" and plug its output into the `target_latent` of a Compass, or the `x_vector` of a Manifold Explorer.
@@ -45,7 +45,7 @@ Converts text instructions directly into latent directional vectors.
 ### 4. 🎚️ `Wayfinder_SemanticSlider` (The Fine-Tuner)
 PCA-based feature isolation.
 
-![A strip of 3 images showing the same base image, but with the Semantic Slider at -1, 0, and +1 isolating a specific trait like age or lighting without changing the core image](images/semantic_slider_example.jpg)
+![Semantic Slider Example](../../assets/brand/gimbal_09_subspace_material_showcase.png)
 
 *   **What it does:** Analyzes a batch of latents, finds the principal components (the fundamental visual differences like lighting, age, or color), and gives you a slider to control that specific feature without altering the rest of the image.
 *   **How to wire it:** Pass a batch of varied latents into `latent_batch`, and the original latent into `base_latent`. Use the `pc_index` to select which "feature" to slide, and `slider_value` to push it.
@@ -64,13 +64,13 @@ We have provided two starter workflows to help you understand the wiring:
 *   **Concept:** This workflow demonstrates how to take an empty latent space and mathematically steer it halfway between two concepts before running it through the KSampler.
 *   **To use:** Drag and drop the JSON into ComfyUI. Click "Queue Prompt". You will see it sample a perfect hybrid latent.
 
-![Full ComfyUI Canvas screenshot of Starter_Compass_Steering.json in action](images/workflow_compass.jpg)
+![Starter Compass Steering](../../assets/brand/gimbal_02_cinematic_steering_showcase.png)
 
 ### 2. `Starter_Manifold_Grid.json`
 *   **Concept:** This workflow uses the Manifold Explorer to generate a 3x3 grid (a batch of 9 images). The X-axis pushes the latent toward "red", and the Y-axis pushes it toward "futuristic".
 *   **To use:** Drag and drop the JSON into ComfyUI. Click "Queue Prompt". It will generate a batch of 9 variations.
 
-![Full ComfyUI Canvas screenshot of Starter_Manifold_Grid.json in action](images/workflow_manifold.jpg)
+![Starter Manifold Grid](../../assets/brand/gimbal_08_harmonic_orbiter_showcase.png)
 
 ---
 *Happy exploring! Latent space is vast, but you are no longer lost.* Latent space is vast, but you are no longer lost.*

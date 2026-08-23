@@ -112,7 +112,7 @@ We welcome code improvements and real-world bug reports. If you are interested i
 ## Example Usage
 
 ### Basic Latent Navigation
-![Compass Steering: Medieval to Alien Sci-Fi](assets/compass_steering.png)
+![Compass Steering](../../assets/brand/gimbal_02_cinematic_steering_showcase.png)
 ```python
 # Move from origin to target with strength control
 base → WayfinderCompass_Pro → modified_latent
@@ -122,7 +122,7 @@ base → WayfinderCompass_Pro → modified_latent
 ```
 
 ### 2D Latent Grid Exploration
-![Manifold Grid: Coffee Cup Concept Matrix](assets/manifold_grid.png)
+![Manifold Grid](../../assets/brand/gimbal_08_harmonic_orbiter_showcase.png)
 ```python
 # Create 3x3 grid of variations
 center → WayfinderManifold_Explorer → latent_batch[9]
@@ -132,7 +132,7 @@ center → WayfinderManifold_Explorer → latent_batch[9]
 ```
 
 ### Text-Guided Modifications
-![Cross-Modal Style Transfer: Haunted Toaster](assets/style_transfer.png)
+![Cross-Modal Style Transfer](../../assets/brand/gimbal_04_semantic_slider_showcase.png)
 ```python
 # Apply text-based changes
 latent → Wayfinder_CrossModalBridge → modified_latent
@@ -140,7 +140,7 @@ latent → Wayfinder_CrossModalBridge → modified_latent
 ```
 
 ### Identity and Likeness Isolation
-![Likeness Control: Identity Vector](assets/likeness_isolator.png)
+![Likeness Control](../../assets/brand/gimbal_09_subspace_material_showcase.png)
 ```python
 # Probe LoRA parameters and isolate the identity tokens
 model, clip → LikenessVectorIsolator → patched_model, patched_clip

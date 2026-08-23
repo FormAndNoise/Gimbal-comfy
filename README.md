@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../assets/brand/gimbal_avatar_512.png" width="96" alt="Gimbal Flight Instruments" />
+<img src="assets/brand/gimbal_avatar_512.png" width="96" alt="Gimbal Flight Instruments" />
 
 # Gimbal Node Suite
 
@@ -8,11 +8,11 @@
 
 **A ComfyUI custom node suite by [Form & Noise](https://github.com/form-and-noise)** &nbsp;|&nbsp; 🟢 Stabilized
 
-[![Tests](https://img.shields.io/badge/tests-220%20passed%2C%200%20failed-brightgreen?style=flat-square)](./concepts/lamnr_framework.md)
-[![GPU Certified](https://img.shields.io/badge/GPU-RTX%203060%20live%20run-blue?style=flat-square)](./visual_asset_index.md)
+[![Tests](https://img.shields.io/badge/tests-220%20passed%2C%200%20failed-brightgreen?style=flat-square)](./wiki/concepts/lamnr_framework.md)
+[![GPU Certified](https://img.shields.io/badge/GPU-RTX%203060%20live%20run-blue?style=flat-square)](./wiki/visual_asset_index.md)
 [![ComfyUI](https://img.shields.io/badge/ComfyUI-compatible-orange?style=flat-square)](https://github.com/comfyanonymous/ComfyUI)
-[![SDXL](https://img.shields.io/badge/SDXL-4ch-teal?style=flat-square)](./concepts/channel_architecture.md)
-[![FLUX.1](https://img.shields.io/badge/FLUX.1-16ch-purple?style=flat-square)](./concepts/channel_architecture.md)
+[![SDXL](https://img.shields.io/badge/SDXL-4ch-teal?style=flat-square)](./wiki/concepts/channel_architecture.md)
+[![FLUX.1](https://img.shields.io/badge/FLUX.1-16ch-purple?style=flat-square)](./wiki/concepts/channel_architecture.md)
 
 > 🎙️ **Flight Deck Announcement**: *"Ladies and gentlemen, please stow your random seed generators in the upright position. We have reached cruising altitude in $\mathbb{R}^{65,536}$ and the slot machine is officially out of service."*
 
@@ -36,6 +36,7 @@
 - **[📋 Canonical Workflow Guides](#-canonical-workflow-guides)**
 - **[🔬 Mathematical & Theoretical Deep Dives](#-mathematical--theoretical-deep-dives)**
 - **[📖 Project History](#-project-history)**
+- **[📚 Documentation Archives & Research Papers](./docs/README.md)**
 - **[🏷️ Brand Standards](#-brand-standards)**
 
 ---
@@ -53,32 +54,32 @@ Every diffusion artist knows the feeling: you have a vivid creative vision, but 
 
 | Creative Goal                                                              | Primary Flight Instrument                                                              | Underlying Mathematical Engine                        |
 | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- | :---------------------------------------------------- |
-| **Blend two concepts** (e.g. Redwood Forest $\leftrightarrow$ Alpine Peak) | 🧭 [Compass Pro](./nodes/compass_pro.md)                                               | Geodesic Spherical Linear Interpolation ($\mu$-SLERP) |
-| **Steer atmosphere with words** ("golden hour soft cinematic")             | 🌉 [Cross-Modal Bridge](./nodes/crossmodal_bridge.md)                                  | Calibrated keyword-to-subspace signature projection   |
-| **Survey 9 variations in a 2D grid**                                       | 🗺️ [Manifold Explorer](./nodes/manifold_explorer.md)                                  | Orthogonal 2D topological surface mapping             |
-| **Generate seamless 360° animation loops**                                 | 🔄 [Circular Orbit](./nodes/circular_orbit.md)                                         | Constant-radius closed-loop geodesic trajectories     |
-| **Lock brand lighting across 1,000 products**                              | 📍 [GPS Anchor](./nodes/gps_anchor.md) + 📂 [GPS Load](./nodes/gps_load.md)            | Cryptographic coordinate hashing & disk caching       |
-| **Dial one attribute without changing others**                             | 🎚️ [Semantic Slider](./nodes/semantic_slider.md)                                      | Real-time SVD/PCA batch covariance decomposition      |
-| **Swap material, lock 100% silhouette**                                    | 🔀 [Channel Split](./nodes/channel_split.md) + 🔁 [Merge](./nodes/channel_merge.md)    | Subspace frequency band decoupling (4ch / 16ch)       |
-| **Eliminate posterization & black outlines**                               | 🛡️ [Latent Stabilizer](./nodes/latent_stabilizer.md)                                  | Low-rank Woodbury MMSE denoiser & variance truncation |
-| **Audit latent probability & OOD distance**                                | 📊 [Diagnostics](./nodes/diagnostics.md) + 📡 [Telemetry](./nodes/latent_telemetry.md) | Exact log-likelihood & Mahalanobis distance scoring   |
+| **Blend two concepts** (e.g. Redwood Forest $\leftrightarrow$ Alpine Peak) | 🧭 [Compass Pro](./wiki/nodes/compass_pro.md)                                               | Geodesic Spherical Linear Interpolation ($\mu$-SLERP) |
+| **Steer atmosphere with words** ("golden hour soft cinematic")             | 🌉 [Cross-Modal Bridge](./wiki/nodes/crossmodal_bridge.md)                                  | Calibrated keyword-to-subspace signature projection   |
+| **Survey 9 variations in a 2D grid**                                       | 🗺️ [Manifold Explorer](./wiki/nodes/manifold_explorer.md)                                  | Orthogonal 2D topological surface mapping             |
+| **Generate seamless 360° animation loops**                                 | 🔄 [Circular Orbit](./wiki/nodes/circular_orbit.md)                                         | Constant-radius closed-loop geodesic trajectories     |
+| **Lock brand lighting across 1,000 products**                              | 📍 [GPS Anchor](./wiki/nodes/gps_anchor.md) + 📂 [GPS Load](./wiki/nodes/gps_load.md)            | Cryptographic coordinate hashing & disk caching       |
+| **Dial one attribute without changing others**                             | 🎚️ [Semantic Slider](./wiki/nodes/semantic_slider.md)                                      | Real-time SVD/PCA batch covariance decomposition      |
+| **Swap material, lock 100% silhouette**                                    | 🔀 [Channel Split](./wiki/nodes/channel_split.md) + 🔁 [Merge](./wiki/nodes/channel_merge.md)    | Subspace frequency band decoupling (4ch / 16ch)       |
+| **Eliminate posterization & black outlines**                               | 🛡️ [Latent Stabilizer](./wiki/nodes/latent_stabilizer.md)                                  | Low-rank Woodbury MMSE denoiser & variance truncation |
+| **Audit latent probability & OOD distance**                                | 📊 [Diagnostics](./wiki/nodes/diagnostics.md) + 📡 [Telemetry](./wiki/nodes/latent_telemetry.md) | Exact log-likelihood & Mahalanobis distance scoring   |
 
 ---
 
 ## 🖼️ Visual Showcase & Galleries
 
 <p align="center">
-  <img src="../assets/brand/gimbal_social_preview.png" alt="Gimbal Social Preview" width="800"/>
+  <img src="assets/brand/gimbal_social_preview.png" alt="Gimbal Social Preview" width="800"/>
 </p>
 
 <table>
 <tr>
-<td align="center"><img src="../assets/brand/gimbal_02_cinematic_steering_showcase.png" width="380"/><br/><strong>Workflow 02: Cinematic Steering</strong><br/><em>100% vehicle silhouette lock with text-steered cyberpunk lighting.</em></td>
-<td align="center"><img src="../assets/brand/gimbal_08_harmonic_orbiter_showcase.png" width="380"/><br/><strong>Workflow 08: Harmonic Orbiter</strong><br/><em>Constant-radius closed-loop geodesic 360° tour.</em></td>
+<td align="center"><img src="assets/brand/gimbal_02_cinematic_steering_showcase.png" width="380"/><br/><strong>Workflow 02: Cinematic Steering</strong><br/><em>100% vehicle silhouette lock with text-steered cyberpunk lighting.</em></td>
+<td align="center"><img src="assets/brand/gimbal_08_harmonic_orbiter_showcase.png" width="380"/><br/><strong>Workflow 08: Harmonic Orbiter</strong><br/><em>Constant-radius closed-loop geodesic 360° tour.</em></td>
 </tr>
 <tr>
-<td align="center"><img src="../assets/brand/gimbal_09_subspace_material_showcase.png" width="380"/><br/><strong>Workflow 09: Subspace Material</strong><br/><em>Subspace channel decoupling (Concrete → Chrome → Velvet).</em></td>
-<td align="center"><img src="../assets/brand/gimbal_04_semantic_slider_showcase.png" width="380"/><br/><strong>Workflow 04: Brand Lighting</strong><br/><em>Photometric lighting transfer across luxury product categories.</em></td>
+<td align="center"><img src="assets/brand/gimbal_09_subspace_material_showcase.png" width="380"/><br/><strong>Workflow 09: Subspace Material</strong><br/><em>Subspace channel decoupling (Concrete → Chrome → Velvet).</em></td>
+<td align="center"><img src="assets/brand/gimbal_04_semantic_slider_showcase.png" width="380"/><br/><strong>Workflow 04: Brand Lighting</strong><br/><em>Photometric lighting transfer across luxury product categories.</em></td>
 </tr>
 </table>
 
@@ -86,10 +87,10 @@ Every diffusion artist knows the feeling: you have a vivid creative vision, but 
 
 | Concept Blender | Text Steered Portrait | Manifold Grid Slice | Semantic Slider |
 |:---:|:---:|:---:|:---:|
-| ![Forest ↔ Mountain Blend](../assets/test_runs/01_concept_blender/01_concept_blend_forest_mountain.jpg) | ![Text Steered Portrait](../assets/test_runs/02_text_steered/02_text_steered_portrait.jpg) | ![Manifold Grid Slice Q1](../assets/test_runs/03_manifold_grid/03_manifold_slice_q1.jpg) | ![Semantic Slider Portrait](../assets/test_runs/05_semantic_slider/05_semantic_slider_portrait.jpg) |
+| ![Forest ↔ Mountain Blend](assets/test_runs/01_concept_blender/01_concept_blend_forest_mountain.jpg) | ![Text Steered Portrait](assets/test_runs/02_text_steered/02_text_steered_portrait.jpg) | ![Manifold Grid Slice Q1](assets/test_runs/03_manifold_grid/03_manifold_slice_q1.jpg) | ![Semantic Slider Portrait](assets/test_runs/05_semantic_slider/05_semantic_slider_portrait.jpg) |
 | `GimbalCompass_Pro` SLERP $t=0.50$ | `GimbalCrossModalBridge` + Orthogonal | `GimbalManifold_Explorer` 3×3 grid | `GimbalSemanticSlider` PC-0 $\pm 1.5$ |
 
-> 📁 **Explore all 206 test renders and 3 interactive HTML HUD galleries in the [Visual Asset & Gallery Index](./visual_asset_index.md)**.
+> 📁 **Explore all 206 test renders and 3 interactive HTML HUD galleries in the [Visual Asset & Gallery Index](./wiki/visual_asset_index.md)**.
 
 ---
 
@@ -178,7 +179,7 @@ Traditional diffusion treats latent tensors as random noise that the UNet denois
 6. Pass `latent_out` into a final `KSampler` set to `denoise = 0.90`, `CFG = 5.5`, `steps = 25`.
 7. Decode with `VAEDecode` and save. You now have a photorealistic, crisp 50% hybrid environment.
 
-> 📖 **Full Workflow Guide**: [Workflow 01: Concept Blender](./workflows/wf_01_concept_blender.md)
+> 📖 **Full Workflow Guide**: [Workflow 01: Concept Blender](./wiki/workflows/wf_01_concept_blender.md)
 
 ---
 
@@ -205,7 +206,7 @@ Traditional diffusion treats latent tensors as random noise that the UNet denois
 5. Wire `latent_out` through a **🛡️ Gimbal Latent Stabilizer** (`truncation_psi = 0.88`, `scale_cap = 8.0`).
 6. Pass into a refinement `KSampler` with `denoise = 0.55` and `CFG = 3.8`. The car's body panels and reflections remain identical, but all lighting and background atmosphere shift to neon cyberpunk.
 
-> 📖 **Full Workflow Guide**: [Workflow 02: Text-Steered Lighting](./workflows/wf_02_text_steered.md)
+> 📖 **Full Workflow Guide**: [Workflow 02: Text-Steered Lighting](./wiki/workflows/wf_02_text_steered.md)
 
 ---
 
@@ -219,7 +220,7 @@ Traditional diffusion treats latent tensors as random noise that the UNet denois
 4. Connect the output `latent_batch` (9 latents) to a refinement `KSampler` with `denoise = 0.50`.
 5. Pass decoded images to **🪡 Gimbal Grid Stitch** (`columns = 3`) to view all 9 variations in a clean contact sheet.
 
-> 📖 **Full Workflow Guide**: [Workflow 03: Manifold Grid](./workflows/wf_03_manifold_grid.md)
+> 📖 **Full Workflow Guide**: [Workflow 03: Manifold Grid](./wiki/workflows/wf_03_manifold_grid.md)
 
 ---
 
@@ -233,7 +234,7 @@ Traditional diffusion treats latent tensors as random noise that the UNet denois
 4. When executed, Gimbal writes `output/gimbal/golden_arch_hero_v1.json` with full tensor coordinates, statistics, and cryptographic SHA-256 hash.
 5. In any future workflow or session, add a **📂 Gimbal GPS Load** node, point to that JSON file, and immediately resume navigation from that exact location.
 
-> 📖 **Full Workflow Guide**: [Workflow 04: Brand-Locked Lighting](./workflows/wf_04_brand_locked.md)
+> 📖 **Full Workflow Guide**: [Workflow 04: Brand-Locked Lighting](./wiki/workflows/wf_04_brand_locked.md)
 
 ---
 
@@ -253,25 +254,25 @@ Traditional diffusion treats latent tensors as random noise that the UNet denois
 
 | Instrument Name | ComfyUI Display Name | Category | Primary Function & Mathematical Core | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| `GimbalCompass_Pro` | 🧭 Gimbal Compass Pro | `Flight Instruments` | Vector arithmetic, $\mu$-SLERP, and orthogonal projection steering. | [compass_pro.md](./nodes/compass_pro.md) |
-| `GimbalManifold_Explorer` | 🗺️ Gimbal Manifold Explorer | `Flight Instruments` | 2D $\mu$-centered orthogonal latent topography grid synthesis. | [manifold_explorer.md](./nodes/manifold_explorer.md) |
-| `GimbalCrossModalBridge` | 🌉 Gimbal Cross-Modal Bridge | `Conditioning` | Calibrated keyword-to-subspace signature projection. | [crossmodal_bridge.md](./nodes/crossmodal_bridge.md) |
-| `GimbalCircularOrbit` | 🔄 Gimbal Circular Orbit | `Trajectory` | Constant-radius closed-loop geodesic orbits ($z(\theta) = \mu + r(\cos\theta\mathbf{u} + \sin\theta\mathbf{v})$). | [circular_orbit.md](./nodes/circular_orbit.md) |
-| `GimbalWaypointSpline` | 〰️ Gimbal Waypoint Spline | `Trajectory` | Spherical Catmull-Rom geodesic spline multi-stop flight path. | [waypoint_spline.md](./nodes/waypoint_spline.md) |
-| `GimbalSemanticSlider` | 🎚️ Gimbal Semantic Slider | `Decomposition` | Real-time SVD/PCA batch covariance decomposition attribute isolation. | [semantic_slider.md](./nodes/semantic_slider.md) |
-| `GimbalGPS_Anchor` | 📍 Gimbal GPS Anchor (Save) | `Navigation` | Extracts single latents, computes hashes, and saves JSON waypoints. | [gps_anchor.md](./nodes/gps_anchor.md) |
-| `GimbalGPS_Load` | 📂 Gimbal GPS Load | `Navigation` | Recalls saved cryptographic waypoint tensors and provenance metadata. | [gps_load.md](./nodes/gps_load.md) |
-| `GimbalChannelSplit` | 🔀 Gimbal Channel Split | `Subspace` | Decouples 4-ch (SDXL) or 16-ch (FLUX) into frequency sub-bands. | [channel_split.md](./nodes/channel_split.md) |
-| `GimbalChannelMerge` | 🔁 Gimbal Channel Merge | `Subspace` | Lossless concatenation and recomposition of split latent bands. | [channel_merge.md](./nodes/channel_merge.md) |
-| `GimbalChannelScale` | ⚖️ Gimbal Channel Scale | `Subspace` | Independent per-channel frequency gain and amplitude control. | [channel_scale.md](./nodes/channel_scale.md) |
-| `GimbalLatentStabilizer` | 🛡️ Gimbal Latent Stabilizer | `Stabilizer` | Full LAMNr pipeline: Woodbury denoise, scale cap, and $\psi$ shrinkage. | [latent_stabilizer.md](./nodes/latent_stabilizer.md) |
-| `GimbalTruncation` | 📉 Gimbal Truncation | `Quality` | Surgical variance shrinkage toward centroid ($z' = \mu + \psi(z-\mu)$). | [truncation.md](./nodes/truncation.md) |
-| `GimbalLatentMath` | 🔢 Gimbal Latent Math | `Primitives` | Full dispatcher exposing all 13 LAMNr primitives in a single node. | [latent_math.md](./nodes/latent_math.md) |
-| `GimbalDiagnostics` | 📊 Gimbal Diagnostics | `Telemetry` | Real-time tensor readout: min, max, mean, std, L2 norm, channel variance. | [diagnostics.md](./nodes/diagnostics.md) |
-| `GimbalLatentTelemetry` | 📡 Gimbal Latent Telemetry | `Telemetry` | Research-grade OOD metrics: Exact Log-Likelihood, Mahalanobis, TC. | [latent_telemetry.md](./nodes/latent_telemetry.md) |
-| `GimbalVectorAnalogy` | ➕ Gimbal Vector Analogy | `Arithmetic` | Concept arithmetic ($A - B + C$) with orthogonal projection safeguards. | [vector_analogy.md](./nodes/vector_analogy.md) |
-| `GimbalLikenessIsolator`| 🎭 Gimbal Likeness Isolator | `Conditioning` | Differential LoRA probe decoupling identity tokens from scene style. | [likeness_isolator.md](./nodes/likeness_isolator.md) |
-| `GimbalGridStitch` | 🪡 Gimbal Grid Stitch | `Utility` | Stitches multi-sample batches into composite image contact sheets. | [grid_stitch.md](./nodes/grid_stitch.md) |
+| `GimbalCompass_Pro` | 🧭 Gimbal Compass Pro | `Flight Instruments` | Vector arithmetic, $\mu$-SLERP, and orthogonal projection steering. | [compass_pro.md](./wiki/nodes/compass_pro.md) |
+| `GimbalManifold_Explorer` | 🗺️ Gimbal Manifold Explorer | `Flight Instruments` | 2D $\mu$-centered orthogonal latent topography grid synthesis. | [manifold_explorer.md](./wiki/nodes/manifold_explorer.md) |
+| `GimbalCrossModalBridge` | 🌉 Gimbal Cross-Modal Bridge | `Conditioning` | Calibrated keyword-to-subspace signature projection. | [crossmodal_bridge.md](./wiki/nodes/crossmodal_bridge.md) |
+| `GimbalCircularOrbit` | 🔄 Gimbal Circular Orbit | `Trajectory` | Constant-radius closed-loop geodesic orbits ($z(\theta) = \mu + r(\cos\theta\mathbf{u} + \sin\theta\mathbf{v})$). | [circular_orbit.md](./wiki/nodes/circular_orbit.md) |
+| `GimbalWaypointSpline` | 〰️ Gimbal Waypoint Spline | `Trajectory` | Spherical Catmull-Rom geodesic spline multi-stop flight path. | [waypoint_spline.md](./wiki/nodes/waypoint_spline.md) |
+| `GimbalSemanticSlider` | 🎚️ Gimbal Semantic Slider | `Decomposition` | Real-time SVD/PCA batch covariance decomposition attribute isolation. | [semantic_slider.md](./wiki/nodes/semantic_slider.md) |
+| `GimbalGPS_Anchor` | 📍 Gimbal GPS Anchor (Save) | `Navigation` | Extracts single latents, computes hashes, and saves JSON waypoints. | [gps_anchor.md](./wiki/nodes/gps_anchor.md) |
+| `GimbalGPS_Load` | 📂 Gimbal GPS Load | `Navigation` | Recalls saved cryptographic waypoint tensors and provenance metadata. | [gps_load.md](./wiki/nodes/gps_load.md) |
+| `GimbalChannelSplit` | 🔀 Gimbal Channel Split | `Subspace` | Decouples 4-ch (SDXL) or 16-ch (FLUX) into frequency sub-bands. | [channel_split.md](./wiki/nodes/channel_split.md) |
+| `GimbalChannelMerge` | 🔁 Gimbal Channel Merge | `Subspace` | Lossless concatenation and recomposition of split latent bands. | [channel_merge.md](./wiki/nodes/channel_merge.md) |
+| `GimbalChannelScale` | ⚖️ Gimbal Channel Scale | `Subspace` | Independent per-channel frequency gain and amplitude control. | [channel_scale.md](./wiki/nodes/channel_scale.md) |
+| `GimbalLatentStabilizer` | 🛡️ Gimbal Latent Stabilizer | `Stabilizer` | Full LAMNr pipeline: Woodbury denoise, scale cap, and $\psi$ shrinkage. | [latent_stabilizer.md](./wiki/nodes/latent_stabilizer.md) |
+| `GimbalTruncation` | 📉 Gimbal Truncation | `Quality` | Surgical variance shrinkage toward centroid ($z' = \mu + \psi(z-\mu)$). | [truncation.md](./wiki/nodes/truncation.md) |
+| `GimbalLatentMath` | 🔢 Gimbal Latent Math | `Primitives` | Full dispatcher exposing all 13 LAMNr primitives in a single node. | [latent_math.md](./wiki/nodes/latent_math.md) |
+| `GimbalDiagnostics` | 📊 Gimbal Diagnostics | `Telemetry` | Real-time tensor readout: min, max, mean, std, L2 norm, channel variance. | [diagnostics.md](./wiki/nodes/diagnostics.md) |
+| `GimbalLatentTelemetry` | 📡 Gimbal Latent Telemetry | `Telemetry` | Research-grade OOD metrics: Exact Log-Likelihood, Mahalanobis, TC. | [latent_telemetry.md](./wiki/nodes/latent_telemetry.md) |
+| `GimbalVectorAnalogy` | ➕ Gimbal Vector Analogy | `Arithmetic` | Concept arithmetic ($A - B + C$) with orthogonal projection safeguards. | [vector_analogy.md](./wiki/nodes/vector_analogy.md) |
+| `GimbalLikenessIsolator`| 🎭 Gimbal Likeness Isolator | `Conditioning` | Differential LoRA probe decoupling identity tokens from scene style. | [likeness_isolator.md](./wiki/nodes/likeness_isolator.md) |
+| `GimbalGridStitch` | 🪡 Gimbal Grid Stitch | `Utility` | Stitches multi-sample batches into composite image contact sheets. | [grid_stitch.md](./wiki/nodes/grid_stitch.md) |
 
 ---
 
@@ -279,16 +280,16 @@ Traditional diffusion treats latent tensors as random noise that the UNet denois
 
 | # | Workflow Name | Primary Instruments | Key Use Case | Documentation |
 | :---: | :--- | :--- | :--- | :--- |
-| **01** | **Concept Blender** | Compass Pro (Slerp) | Geodesic blend between two prompts at Step 0. | [wf_01_concept_blender.md](./workflows/wf_01_concept_blender.md) |
-| **02** | **Text-Steered Lighting** | Cross-Modal + Compass (Ortho) | Project natural language lighting onto locked geometry. | [wf_02_text_steered.md](./workflows/wf_02_text_steered.md) |
-| **03** | **Manifold Grid** | Manifold Explorer | 2D topological surface variation grid. | [wf_03_manifold_grid.md](./workflows/wf_03_manifold_grid.md) |
-| **04** | **Brand-Locked Lighting** | GPS Anchor + Compass (Ortho) | Capture brand lighting grammar and project across products. | [wf_04_brand_locked.md](./workflows/wf_04_brand_locked.md) |
-| **05** | **Semantic Slider** | Semantic Slider (PCA/SVD) | Real-time covariance attribute modulation. | [wf_05_semantic_slider.md](./workflows/wf_05_semantic_slider.md) |
-| **06** | **Architecture Material Matrix** | Cross-Modal + Manifold | 2D material $\times$ elevation architectural sweep. | [wf_06_arch_material_matrix.md](./workflows/wf_06_arch_material_matrix.md) |
-| **07** | **Likeness Isolator** | Likeness Isolator + Compass | Differential LoRA identity token isolation. | [wf_07_likeness_isolator.md](./workflows/wf_07_likeness_isolator.md) |
-| **08** | **Harmonic Orbiter** | Circular Orbit (Geodesic) | Constant-radius closed-loop 360° architectural/product tour. | [wf_08_harmonic_orbiter.md](./workflows/wf_08_harmonic_orbiter.md) |
-| **09** | **Subspace Material Matrix** | Channel Split + Merge + Stabilizer | Subspace frequency band decoupling (100% silhouette lock). | [wf_09_subspace_material.md](./workflows/wf_09_subspace_material.md) |
-| **10** | **Pro Multi-Instrument Pipeline**| Full Chained Flight Deck | End-to-end multi-instrument production validation. | [wf_10_pro_pipeline.md](./workflows/wf_10_pro_pipeline.md) |
+| **01** | **Concept Blender** | Compass Pro (Slerp) | Geodesic blend between two prompts at Step 0. | [wf_01_concept_blender.md](./wiki/workflows/wf_01_concept_blender.md) |
+| **02** | **Text-Steered Lighting** | Cross-Modal + Compass (Ortho) | Project natural language lighting onto locked geometry. | [wf_02_text_steered.md](./wiki/workflows/wf_02_text_steered.md) |
+| **03** | **Manifold Grid** | Manifold Explorer | 2D topological surface variation grid. | [wf_03_manifold_grid.md](./wiki/workflows/wf_03_manifold_grid.md) |
+| **04** | **Brand-Locked Lighting** | GPS Anchor + Compass (Ortho) | Capture brand lighting grammar and project across products. | [wf_04_brand_locked.md](./wiki/workflows/wf_04_brand_locked.md) |
+| **05** | **Semantic Slider** | Semantic Slider (PCA/SVD) | Real-time covariance attribute modulation. | [wf_05_semantic_slider.md](./wiki/workflows/wf_05_semantic_slider.md) |
+| **06** | **Architecture Material Matrix** | Cross-Modal + Manifold | 2D material $\times$ elevation architectural sweep. | [wf_06_arch_material_matrix.md](./wiki/workflows/wf_06_arch_material_matrix.md) |
+| **07** | **Likeness Isolator** | Likeness Isolator + Compass | Differential LoRA identity token isolation. | [wf_07_likeness_isolator.md](./wiki/workflows/wf_07_likeness_isolator.md) |
+| **08** | **Harmonic Orbiter** | Circular Orbit (Geodesic) | Constant-radius closed-loop 360° architectural/product tour. | [wf_08_harmonic_orbiter.md](./wiki/workflows/wf_08_harmonic_orbiter.md) |
+| **09** | **Subspace Material Matrix** | Channel Split + Merge + Stabilizer | Subspace frequency band decoupling (100% silhouette lock). | [wf_09_subspace_material.md](./wiki/workflows/wf_09_subspace_material.md) |
+| **10** | **Pro Multi-Instrument Pipeline**| Full Chained Flight Deck | End-to-end multi-instrument production validation. | [wf_10_pro_pipeline.md](./wiki/workflows/wf_10_pro_pipeline.md) |
 
 ---
 
@@ -296,18 +297,18 @@ Traditional diffusion treats latent tensors as random noise that the UNet denois
 
 For power users, machine learning engineers, and researchers seeking the mathematical formulations underlying Gimbal:
 
-- **[What is Latent Space?](./concepts/latent_space.md)** — Intuitive guide to high-dimensional manifold topology and VAE compression.
-- **[SLERP vs. LERP: Why the Arc Matters](./concepts/slerp_vs_lerp.md)** — Mathematical derivation of midpoint variance collapse and empirical $\mu$-centered SLERP (Equation E4).
-- **[The Gaussian Annulus Theorem](./concepts/gaussian_annulus.md)** — Proof of why high-dimensional mass concentrates on a thin hypersphere shell in $\mathbb{R}^{65,536}$.
-- **[Channel Architecture: 4ch (SDXL) vs. 16ch (FLUX.1)](./concepts/channel_architecture.md)** — Subspace frequency band decoupling and broad-spectrum cluster mapping.
-- **[The LAMNr Framework (Equations E1–E13)](./concepts/lamnr_framework.md)** — Full technical dossier covering normalizing flows, Woodbury matrix MMSE inversion, Mahalanobis OOD metrics, and Total Correlation.
-- **[Failure Case Studies & Remediations](./concepts/failure_case_studies.md)** — Audited post-mortems of Step-8 SLERP collisions, CFG variance frying, analogy double-exposures, and delta-zero collapse.
+- **[What is Latent Space?](./wiki/concepts/latent_space.md)** — Intuitive guide to high-dimensional manifold topology and VAE compression.
+- **[SLERP vs. LERP: Why the Arc Matters](./wiki/concepts/slerp_vs_lerp.md)** — Mathematical derivation of midpoint variance collapse and empirical $\mu$-centered SLERP (Equation E4).
+- **[The Gaussian Annulus Theorem](./wiki/concepts/gaussian_annulus.md)** — Proof of why high-dimensional mass concentrates on a thin hypersphere shell in $\mathbb{R}^{65,536}$.
+- **[Channel Architecture: 4ch (SDXL) vs. 16ch (FLUX.1)](./wiki/concepts/channel_architecture.md)** — Subspace frequency band decoupling and broad-spectrum cluster mapping.
+- **[The LAMNr Framework (Equations E1–E13)](./wiki/concepts/lamnr_framework.md)** — Full technical dossier covering normalizing flows, Woodbury matrix MMSE inversion, Mahalanobis OOD metrics, and Total Correlation.
+- **[Failure Case Studies & Remediations](./wiki/concepts/failure_case_studies.md)** — Audited post-mortems of Step-8 SLERP collisions, CFG variance frying, analogy double-exposures, and delta-zero collapse.
 
 ---
 
 ## 📖 Project History
 
-- **[Creation Timeline & Development History](./history/project_history.md)** — The evolutionary story from the original pre-alpha "Wayfinder" prototype, through the "Latent Explorer" LAMNr research era and Run 4 failure remediations, to the certified "Gimbal" node suite.
+- **[Creation Timeline & Development History](./wiki/history/project_history.md)** — The evolutionary story from the original pre-alpha "Wayfinder" prototype, through the "Latent Explorer" LAMNr research era and Run 4 failure remediations, to the certified "Gimbal" node suite.
 
 ---
 

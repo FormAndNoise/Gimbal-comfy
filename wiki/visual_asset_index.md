@@ -1,4 +1,4 @@
-﻿# 🖼️ Visual Asset & Telemetry Gallery Index
+# 🖼️ Visual Asset & Telemetry Gallery Index
 
 > *Complete interactive directory of all showcase renders, test run galleries, baseline controls, and audited failure artifacts.*
 
@@ -10,9 +10,9 @@ The handoff package includes three standalone **Dark HUD HTML Galleries** featur
 
 | Gallery File | Location | Content Summary |
 | :--- | :--- | :--- |
-| **Live 10 Workflows** | [`GALLERY_Live_10_Workflows.html`](../assets/galleries/GALLERY_Live_10_Workflows.html) | High-resolution production renders across all 10 canonical workflows on CUDA RTX 3060. |
-| **Run 5 Remediation** | [`GALLERY_Run5_Remediation.html`](../assets/galleries/GALLERY_Run5_Remediation.html) | Side-by-side audited comparisons of Run 4 failures vs. Run 5 stabilized remediations. |
-| **Run 6 Fresh Exploration** | [`GALLERY_Run6_Fresh_Exploration.html`](../assets/galleries/GALLERY_Run6_Fresh_Exploration.html) | Deep exploration sweeps covering watches, armchairs, desert orbital flythroughs, and analogy transfers. |
+| **Live 10 Workflows** | [`run_all_workflows_live_test.py`](../test_suite/scripts/run_all_workflows_live_test.py) | High-resolution production renders across all 10 canonical workflows on CUDA RTX 3060. |
+| **Run 5 Remediation** | [`run_remediated_test_run5.py`](../test_suite/scripts/run_remediated_test_run5.py) | Side-by-side audited comparisons of Run 4 failures vs. Run 5 stabilized remediations. |
+| **Run 6 Fresh Exploration** | [`run_fresh_exploration_run6.py`](../test_suite/scripts/run_fresh_exploration_run6.py) | Deep exploration sweeps covering watches, armchairs, desert orbital flythroughs, and analogy transfers. |
 
 ---
 
