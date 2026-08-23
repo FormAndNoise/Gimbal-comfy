@@ -106,15 +106,15 @@
       "clamp_mask_input": false,
       "enable_perf_logging": false,
       "base_latent": [
-        "5",
-        0
-      ],
-      "target_latent": [
         "6",
         0
       ],
-      "origin_latent": [
+      "target_latent": [
         "7",
+        0
+      ],
+      "origin_latent": [
+        "6",
         0
       ]
     }

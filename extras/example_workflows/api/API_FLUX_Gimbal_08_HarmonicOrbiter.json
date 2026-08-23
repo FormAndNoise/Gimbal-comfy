@@ -1,0 +1,96 @@
+{
+  "200": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux1-dev.sft",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "201": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    }
+  },
+  "202": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["201", 0],
+      "text": "monolithic brutalist architectural pavilion on rugged coastal cliff, cantilevered board-formed concrete, floor to ceiling glass, warm interior light, architectural photography, masterpiece, sharp focus"
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["201", 0],
+      "text": ""
+    }
+  },
+  "4": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "batch_size": 1,
+      "height": 1024,
+      "width": 1024
+    }
+  },
+  "20": {
+    "class_type": "GimbalCircularOrbit",
+    "inputs": {
+      "center_latent": ["4", 0],
+      "orbit_mode": "Orthogonal_Basis",
+      "preserve_hypersphere_norm": true,
+      "radius": 0.95,
+      "seed": 105,
+      "steps": 4
+    }
+  },
+  "25": {
+    "class_type": "GimbalLatentStabilizer",
+    "inputs": {
+      "jitter_strength": 0.0,
+      "latent": ["20", 0],
+      "scale_cap": 10.0,
+      "subspace_rank": -1,
+      "truncation_psi": 0.92
+    }
+  },
+  "30": {
+    "class_type": "KSampler",
+    "inputs": {
+      "cfg": 3.5,
+      "control_after_generate": "fixed",
+      "denoise": 1.0,
+      "latent_image": ["25", 0],
+      "model": ["200", 0],
+      "negative": ["3", 0],
+      "positive": ["2", 0],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "seed": 8802,
+      "steps": 20
+    }
+  },
+  "31": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": ["30", 0],
+      "vae": ["202", 0]
+    }
+  },
+  "32": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "FLUX_Gimbal_08_HarmonicOrbiter",
+      "images": ["31", 0]
+    }
+  }
+}

@@ -25,6 +25,46 @@ Generative latent spaces are not lottery slots—they are high-dimensional topol
 
 
 
+## 🏛️ Flagship Production Showcase: Precision Architectural Flight
+
+Gimbal replaces lottery-based prompt guessing with deterministic latent coordinate flight instruments. Below are two verified, presentation-quality workflows showcasing architectural generation with mathematical consistency:
+
+### 1. `Gimbal_08_HarmonicOrbiter` — Seamless Closed-Loop Architectural Tour
+*Sweeping an exact constant-radius Gaussian noise geodesic orbit ($z(\theta) = \mu + r(\cos\theta\,\mathbf{u} + \sin\theta\,\mathbf{v})$) around a monolithic brutalist cliffside pavilion ($t=0 \equiv t=2\pi$).*
+
+<p align="center">
+  <img src="brand/gimbal_08_harmonic_orbiter_showcase.png" alt="Gimbal 08: Harmonic Orbiter Architectural Showcase" width="100%">
+</p>
+
+- **Why it's consistent**: Preserves high-dimensional Gaussian shell radius without variance collapse or seam jumps, generating 4 rich, photorealistic vantage points of the architectural complex.
+- **Workflow**: Available in [`extras/example_workflows/Gimbal_08_HarmonicOrbiter.json`](extras/example_workflows/Gimbal_08_HarmonicOrbiter.json) (SDXL & FLUX.1-Dev/Schnell/Kontext).
+
+---
+
+### 2. `Gimbal_02_TextSteered` — Bold Automotive Environment Transformation
+*Steering environmental atmosphere across weather, time-of-day, and geography with 100% vehicle geometry lock.*
+
+<p align="center">
+  <img src="brand/gimbal_02_cinematic_steering_showcase.png" alt="Gimbal 02: Cinematic Automotive Environment Steering" width="100%">
+</p>
+
+- **Left to Right**: Coastal Daylight Overlook (Baseline Control) &rarr; Rain-Slicked Midnight Cyberpunk City with Neon Reflections &rarr; Golden Hour Desert Sunset with Dust Haze.
+- **Workflow**: Available in [`extras/example_workflows/Gimbal_02_TextSteered.json`](extras/example_workflows/Gimbal_02_TextSteered.json).
+
+---
+
+### 3. `Gimbal_09_SubspaceMaterialMatrix` — Dual-Band Material Transformation (Geometry Locked)
+*Decoupling structural geometry channels from surface chroma channels to transform object materials while keeping silhouette, contours, and environment geometry 100% fixed.*
+
+<p align="center">
+  <img src="brand/gimbal_09_subspace_material_showcase.png" alt="Gimbal 09: Subspace Material Matrix Showcase" width="100%">
+</p>
+
+- **Left to Right**: Natural Birch & Oat Linen (Baseline Control) &rarr; Mirror-Polished Chrome & Marble Reflections &rarr; Solid 24k Gold Luxury Framing with Gold Lattice Art.
+- **Workflow**: Available in [`extras/example_workflows/Gimbal_09_SubspaceMaterialMatrix.json`](extras/example_workflows/Gimbal_09_SubspaceMaterialMatrix.json) (SDXL & FLUX.1-Dev/Schnell/Kontext).
+
+---
+
 ## 🛠️ Flight Instrument Catalog
 
 ### 1. Flight Instruments & Trajectory Navigation

@@ -27,6 +27,7 @@ class GimbalVectorAnalogy:
                 "concept_B": ("LATENT", {"tooltip": "Base concept without attribute (e.g. Man)"}),
                 "concept_C": ("LATENT", {"tooltip": "New recipient concept (e.g. Woman)"}),
                 "strength": ("FLOAT", {"default": 1.0, "min": -5.0, "max": 5.0, "step": 0.05, "display": "slider"}),
+                "spatial_mode": (["Spatial_Direct", "Channel_Mean"], {"default": "Spatial_Direct", "tooltip": "Channel_Mean computes global per-channel offset to eliminate spatial phantom face/ghosting artifacts"}),
                 "ortho_project": ("BOOLEAN", {"default": False, "tooltip": "Removes C-parallel component from delta to avoid double-counting"}),
                 "preserve_norm": ("BOOLEAN", {"default": True, "tooltip": "Rescales output to match recipient C's spherical radius"}),
             },
@@ -43,6 +44,7 @@ class GimbalVectorAnalogy:
         strength: float,
         ortho_project: bool,
         preserve_norm: bool,
+        spatial_mode: str = "Spatial_Direct",
         mask: Optional[torch.Tensor] = None,
     ) -> Tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
         with torch.no_grad():
@@ -68,6 +70,9 @@ class GimbalVectorAnalogy:
 
             # Compute delta vector (A - B)
             delta = (s_A.float() - s_B.float())
+
+            if spatial_mode == "Channel_Mean":
+                delta = delta.mean(dim=(-2, -1), keepdim=True).expand_as(s_C)
 
             C_f = s_C.float()
             C_flat = C_f.reshape(B_max, -1)

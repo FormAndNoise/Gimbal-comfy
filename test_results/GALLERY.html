@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gimbal Latent Flight Instruments — Remediation & Production Gallery (Run 5)</title>
+  <style>
+    :root {
+      --bg: #0B0B0B;
+      --card-bg: #141414;
+      --card-inner: #1A1A1A;
+      --accent: #35B8B8;
+      --accent-dark: #0E8A8A;
+      --text: #F2EEE8;
+      --text-muted: #8A8680;
+      --border: #262626;
+      --border-highlight: #35B8B8;
+      --control-tag: #444444;
+      --gimbal-tag: #35B8B8;
+      --tag-success: #38A169;
+      --tag-failure: #E53E3E;
+      --tag-warning: #DD6B20;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 40px 24px;
+      line-height: 1.5;
+    }
+    header {
+      max-width: 1440px;
+      margin: 0 auto 36px auto;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    h1 {
+      color: var(--accent);
+      margin: 0;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: rgba(53, 184, 184, 0.1);
+    }
+    p.sub {
+      color: var(--text-muted);
+      margin: 0;
+      font-size: 15px;
+      max-width: 900px;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .section-header {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h2 {
+      color: var(--accent);
+      font-size: 20px;
+      margin: 0;
+      font-weight: 600;
+    }
+    p.desc {
+      color: #BBB;
+      font-size: 14px;
+      margin: 0;
+    }
+    .diagnostic-box {
+      background: #181512;
+      border-left: 3px solid var(--tag-warning);
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #E2D9CF;
+    }
+    .diagnostic-box.success {
+      background: #0E1A14;
+      border-left: 3px solid var(--tag-success);
+      color: #D1E7DD;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .grid-5 {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .grid-4 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    .card {
+      background: var(--card-inner);
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #555;
+    }
+    .card.highlight-green {
+      border: 2px solid var(--tag-success);
+    }
+    .card.highlight-red {
+      border: 2px solid var(--tag-failure);
+    }
+    .card.highlight-teal {
+      border: 2px solid var(--accent);
+    }
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      background: #000;
+      cursor: zoom-in;
+    }
+    .card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .tag-control { background: var(--control-tag); color: #FFF; }
+    .tag-gimbal { background: var(--accent); color: #000; }
+    .tag-success { background: var(--tag-success); color: #FFF; }
+    .tag-failure { background: var(--tag-failure); color: #FFF; }
+    .tag-warning { background: var(--tag-warning); color: #FFF; }
+    .caption-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #EEE;
+      margin-bottom: 4px;
+    }
+    .caption-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .badge-bar {
+      display: flex;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 12px;
+      flex-wrap: wrap;
+    }
+    .param-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      background: #222;
+      border: 1px solid #383838;
+      border-radius: 3px;
+      padding: 2px 6px;
+      color: #A0AEC0;
+    }
+    .comparison-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .label-fail { color: #FC8181; }
+    .label-success { color: #68D391; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand-bar">
+      <h1>🧭 Gimbal Flight Instruments: Remediation Gallery</h1>
+      <span class="badge">RUN 5 AUDITED BENCHMARKS</span>
+    </div>
+    <p class="sub">Direct side-by-side evaluation of the original spatial failures (Run 4) against the mathematically stabilized and noise-space remediations (Run 5).</p>
+  </header>
+
+  <div class="container">
+
+    <!-- 1. Concept Blender Remediation -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-row">
+          <h2>1. Concept Blender — Geometry Re-Skinning vs. True Noise-Space SLERP</h2>
+        </div>
+        <p class="desc">Comparing intermediate Step-8 latent interpolation against initial Step-0 Gaussian noise hypersphere blending.</p>
+      </div>
+
+      <div class="diagnostic-box">
+        <strong>The Problem:</strong> Slerping spatial latents at Step 8 forces the UNet to re-skin tree branches into vertical cliff spires and moss mounds into rocks, producing heavy black comic-book outlines and posterization.<br>
+        <strong>The Remediation:</strong> Performing SLERP on initial Gaussian noise at Step 0 ($t=0$) before spatial coordinates crystallize allows the UNet to organically synthesize a photorealistic composite landscape.
+      </div>
+
+      <div class="grid grid-5">
+        <!-- Control Forest -->
+        <div class="card">
+          <img src="comparisons_v5/01_ctrl_A_forest_v5.png" alt="Dense Forest Baseline" />
+          <div class="card-body">
+            <span class="tag tag-control">CONTROL A</span>
+            <div class="caption-title">Dense Forest Baseline</div>
+            <div class="caption-sub">Origin Seed 42 with mossy curved tree trunk and ground mounds</div>
+            <div class="badge-bar"><span class="param-badge">t = 0.0</span></div>
+          </div>
+        </div>
+
+        <!-- Failure Step 8 Slerp -->
+        <div class="card highlight-red">
+          <img src="comparisons/01_slerp_35pct_00001_.png" alt="Run 4 Step-8 Failure" />
+          <div class="card-body">
+            <span class="tag tag-failure">RUN 4 FAILURE</span>
+            <div class="comparison-label label-fail">❌ Geometric Re-Skinning</div>
+            <div class="caption-title">Tree Branches &rarr; Rock Spire</div>
+            <div class="caption-sub">Tree branches literally turned into cliff faces; severe posterized black outlines</div>
+            <div class="badge-bar"><span class="param-badge">Step 8 Spatial Slerp</span></div>
+          </div>
+        </div>
+
+        <!-- Remediated 50% Noise Slerp -->
+        <div class="card highlight-green">
+          <img src="comparisons_v5/01_slerp_noise_50pct_v5.png" alt="Run 5 Noise SLERP 50%" />
+          <div class="card-body">
+            <span class="tag tag-success">RUN 5 REMEDIATED (50%)</span>
+            <div class="comparison-label label-success">✓ True Semantic Synthesis</div>
+            <div class="caption-title">Photorealistic Alpine Valley</div>
+            <div class="caption-sub">Crisp snow-covered pines on slopes with towering mountain in background</div>
+            <div class="badge-bar"><span class="param-badge">Step 0 Noise Slerp | CFG 5.5</span></div>
+          </div>
+        </div>
+
+        <!-- Remediated 65% Noise Slerp -->
+        <div class="card highlight-green">
+          <img src="comparisons_v5/01_slerp_noise_65pct_v5.png" alt="Run 5 Noise SLERP 65%" />
+          <div class="card-body">
+            <span class="tag tag-success">RUN 5 REMEDIATED (65%)</span>
+            <div class="comparison-label label-success">✓ Mountain Dominant</div>
+            <div class="caption-title">Glacier Peak & Pine Forests</div>
+            <div class="caption-sub">Photorealistic snow shaders, atmospheric haze, zero branch-to-cliff morphing</div>
+            <div class="badge-bar"><span class="param-badge">Step 0 Noise Slerp | CFG 5.5</span></div>
+          </div>
+        </div>
+
+        <!-- Control Mountain -->
+        <div class="card">
+          <img src="comparisons_v5/01_ctrl_B_mountain_v5.png" alt="Snowy Mountain Baseline" />
+          <div class="card-body">
+            <span class="tag tag-control">CONTROL B</span>
+            <div class="caption-title">Snow Mountain Baseline</div>
+            <div class="caption-sub">Target Seed 1042 tundra mountain baseline</div>
+            <div class="badge-bar"><span class="param-badge">t = 1.0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Text-Steered Diffusion — Automotive Environment Transformation -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-row">
+          <h2>2. Text-Steered Diffusion — Bold Environment & Atmosphere Transformation</h2>
+          <span class="badge">LOCKED VEHICLE GEOMETRY</span>
+        </div>
+        <p class="desc">Using GimbalCrossModalBridge + GimbalCompass_Pro (Orthogonal Mode) with GimbalLatentStabilizer to transform complete environments while keeping complex vehicle geometry 100% fixed.</p>
+      </div>
+
+      <div class="diagnostic-box success">
+        <strong>Dramatic Environmental Shift:</strong> Transforming a sunny coastal highway overlook into a midnight rain-drenched cyberpunk city with neon reflections and into a desert golden hour sunset, while the hypercar's body lines, wheel geometry, and reflections stay 100% locked.
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Control Car Coastal Daylight -->
+        <div class="card">
+          <img src="car_outdoor_steering/01_daylight_coastal.png" alt="Coastal Daylight Baseline" />
+          <div class="card-body">
+            <span class="tag tag-control">CONTROL BASELINE</span>
+            <div class="caption-title">Coastal Daylight Highway</div>
+            <div class="caption-sub">Sunny coastal bluffs and ocean overlook baseline (Seed 1205)</div>
+            <div class="badge-bar"><span class="param-badge">Baseline | Denoise 1.0</span></div>
+          </div>
+        </div>
+
+        <!-- Steered Cyberpunk Midnight -->
+        <div class="card highlight-teal">
+          <img src="car_outdoor_steering/02_cyberpunk_midnight.png" alt="Steered Cyberpunk Midnight" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">STEERED: CYBERPUNK NOIR</span>
+            <div class="comparison-label" style="color: var(--accent);">✓ Dramatic City & Rain</div>
+            <div class="caption-title">Rain-Slicked Midnight City</div>
+            <div class="caption-sub">Neon skyscrapers, drenched asphalt, cyan/magenta reflections, 100% car geometry lock</div>
+            <div class="badge-bar"><span class="param-badge">CrossModal | Denoise 0.65</span></div>
+          </div>
+        </div>
+
+        <!-- Steered Desert Sunset -->
+        <div class="card highlight-teal">
+          <img src="car_outdoor_steering/03_golden_sunset.png" alt="Steered Desert Sunset" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">STEERED: DESERT SUNSET</span>
+            <div class="comparison-label" style="color: var(--accent);">✓ Dramatic Sky & Atmosphere</div>
+            <div class="caption-title">Golden Hour Desert Bluff</div>
+            <div class="caption-sub">Desert mountain plateaus, warm dust haze, and golden horizon lighting</div>
+            <div class="badge-bar"><span class="param-badge">CrossModal | Denoise 0.65</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Brand-Locked Lighting Remediation -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-row">
+          <h2>3. Brand-Locked Lighting — Hallucination & Watermark Removal</h2>
+        </div>
+        <p class="desc">Editorial lighting transfer onto product geometry without background corruption or floating artifacts.</p>
+      </div>
+
+      <div class="diagnostic-box">
+        <strong>The Problem:</strong> Denoise 0.72 caused the UNet to hallucinate floating black wireframe geometry on the left and a fake watermark logo in the corner.<br>
+        <strong>The Remediation:</strong> Orthogonal steering stabilized with <code>GimbalLatentStabilizer</code> and calibrated at denoise 0.50 / CFG 3.8 produces clean gold speculars with zero hallucinations.
+      </div>
+
+      <div class="grid grid-4">
+        <!-- Watch Anchor -->
+        <div class="card">
+          <img src="comparisons_v5/04_source_anchor_watch_v5.png" alt="Gold Watch Anchor" />
+          <div class="card-body">
+            <span class="tag tag-control">GPS ANCHOR</span>
+            <div class="caption-title">Gold Watch on Velvet</div>
+            <div class="caption-sub">Volumetric gold rim lighting and dark velvet source (Seed 1337)</div>
+            <div class="badge-bar"><span class="param-badge">Anchor Source</span></div>
+          </div>
+        </div>
+
+        <!-- Control Handbag -->
+        <div class="card">
+          <img src="comparisons_v5/04_ctrl_baseline_handbag_v5.png" alt="Handbag Daylight Baseline" />
+          <div class="card-body">
+            <span class="tag tag-control">CONTROL</span>
+            <div class="caption-title">Daylight Handbag</div>
+            <div class="caption-sub">Flat catalog product shot baseline (Seed 4242)</div>
+            <div class="badge-bar"><span class="param-badge">Recipient Baseline</span></div>
+          </div>
+        </div>
+
+        <!-- Failure Run 4 -->
+        <div class="card highlight-red">
+          <img src="comparisons/04_brand_denoise_072_00001_.png" alt="Run 4 Hallucinations" />
+          <div class="card-body">
+            <span class="tag tag-failure">RUN 4 FAILURE</span>
+            <div class="comparison-label label-fail">❌ Artifacts & Watermark</div>
+            <div class="caption-title">Wireframe & Logo Artifacts</div>
+            <div class="caption-sub">Floating black wireframe on left; fake AI watermark logo in top left corner</div>
+            <div class="badge-bar"><span class="param-badge">Denoise 0.72 | Unstabilized</span></div>
+          </div>
+        </div>
+
+        <!-- Remediated Run 5 -->
+        <div class="card highlight-green">
+          <img src="comparisons_v5/04_brand_denoise_050_v5.png" alt="Run 5 Remediated Handbag" />
+          <div class="card-body">
+            <span class="tag tag-success">RUN 5 REMEDIATED</span>
+            <div class="comparison-label label-success">✓ Zero Hallucinations</div>
+            <div class="caption-title">Crisp Commercial Render</div>
+            <div class="caption-sub">Wireframe artifacts and watermarks eliminated; crisp gold hardware and leather</div>
+            <div class="badge-bar"><span class="param-badge">Stabilizer | CFG 3.8 | Denoise 0.50</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Concept Steering vs Spatial Subtraction Architecture -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-row">
+          <h2>4. Flight Instrument Architecture — Cross-Modal Steering vs. Spatial Collision</h2>
+          <span class="badge">MATHEMATICAL PRINCIPLE</span>
+        </div>
+        <p class="desc">Understanding why orthogonal conditioning space steering succeeds where direct spatial elementwise subtraction encounters coordinate collision.</p>
+      </div>
+
+      <div class="diagnostic-box success">
+        <strong>The Architectural Rule:</strong> Latent tensors in diffusion models possess a fixed spatial coordinate grid ($128 \times 128$). Direct elementwise subtraction $(A - B + C)$ works cleanly only when features are spatially aligned or channeled via <code>GimbalChannelSplit</code>. For unaligned attributes and atmospheric shifts, <strong>Cross-Modal Orthogonal Projection</strong> (<code>GimbalCrossModalBridge</code> + <code>GimbalCompass_Pro</code>) steers the UNet's attention layers across all spatial coordinates without ghosting or coordinate stamp collisions.
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Daylight Base -->
+        <div class="card">
+          <img src="car_outdoor_steering/01_daylight_coastal.png" alt="Base Coordinate Grid" />
+          <div class="card-body">
+            <span class="tag tag-control">BASE LATENT (C)</span>
+            <div class="caption-title">Base Spatial Geometry</div>
+            <div class="caption-sub">Original hypercar geometry on coastal highway (Seed 1205)</div>
+            <div class="badge-bar"><span class="param-badge">Spatial Origin (C)</span></div>
+          </div>
+        </div>
+
+        <!-- Cross-Modal Orthogonal Result -->
+        <div class="card highlight-teal">
+          <img src="car_outdoor_steering/02_cyberpunk_midnight.png" alt="Orthogonal Cross-Modal Steering" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">ORTHOGONAL GUIDANCE</span>
+            <div class="comparison-label" style="color: var(--accent);">✓ Zero Coordinate Collision</div>
+            <div class="caption-title">Attention-Space Steering</div>
+            <div class="caption-sub">Guidance vector applied orthogonally across attention layers, transforming atmosphere while locking car structure</div>
+            <div class="badge-bar"><span class="param-badge">GimbalCrossModalBridge</span></div>
+          </div>
+        </div>
+
+        <!-- Brand Velvet Result -->
+        <div class="card highlight-teal">
+          <img src="comparisons_v5/04_brand_denoise_050_v5.png" alt="Brand Velvet Lighting Transfer" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">GPS ANCHOR STEERING</span>
+            <div class="comparison-label" style="color: var(--accent);">✓ Clean Lighting Transfer</div>
+            <div class="caption-title">Product Studio Shadow Lock</div>
+            <div class="caption-sub">Volumetric gold hardware reflections & dark velvet shadows transferred with zero artifacts</div>
+            <div class="badge-bar"><span class="param-badge">GimbalGPS_Anchor</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Flagship Architectural Showcase: 360° Harmonic Orbiter -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-row">
+          <h2>5. Flagship Showcase — Gimbal_08 Harmonic Orbiter (Photorealistic Architectural Tour)</h2>
+          <span class="badge">PRESENTATION QUALITY</span>
+        </div>
+        <p class="desc">Closed-loop Gaussian noise spherical orbit ($t=0 \equiv t=2\pi$) synthesizing 4 distinct spatial perspectives around the architectural complex.</p>
+      </div>
+
+      <div class="diagnostic-box success">
+        <strong>True Photorealistic Tour:</strong> Slerping initial noise seeds on the hypersphere at Step 0 generates 4 rich, distinct architectural vantage points (interior gallery, cliffside cantilever exterior, wide ocean terrace, and sunset shear wall) with zero mosaic distortion and seamless material coherence.
+      </div>
+
+      <div class="grid grid-4">
+        <!-- Frame 00 -->
+        <div class="card highlight-teal">
+          <img src="architectural_noise_orbit/08_step0_orbit_frame_00.png" alt="Interior Glass Gallery" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">ORBIT VANTAGE 1</span>
+            <div class="caption-title">Interior Glass Gallery</div>
+            <div class="caption-sub">Floor-to-ceiling glass looking out at massive stone cliffs and sea (&theta; = 0&deg;)</div>
+            <div class="badge-bar"><span class="param-badge">&theta; = 0&deg;</span><span class="param-badge">Noise Orbit</span></div>
+          </div>
+        </div>
+
+        <!-- Frame 01 -->
+        <div class="card highlight-teal">
+          <img src="architectural_noise_orbit/08_step0_orbit_frame_01.png" alt="Cantilevered Rock Exterior" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">ORBIT VANTAGE 2</span>
+            <div class="caption-title">Cantilevered Crevasse</div>
+            <div class="caption-sub">Exterior perspective of the glass pavilion embedded directly into granite (&theta; = 90&deg;)</div>
+            <div class="badge-bar"><span class="param-badge">&theta; = 90&deg;</span><span class="param-badge">Radius 0.95</span></div>
+          </div>
+        </div>
+
+        <!-- Frame 02 -->
+        <div class="card highlight-teal">
+          <img src="architectural_noise_orbit/08_step0_orbit_frame_02.png" alt="Ocean Horizon Terrace" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">ORBIT VANTAGE 3</span>
+            <div class="caption-title">Ocean Horizon Terrace</div>
+            <div class="caption-sub">Wide-angle panoramic terrace overlooking the coastal bluff (&theta; = 180&deg;)</div>
+            <div class="badge-bar"><span class="param-badge">&theta; = 180&deg;</span><span class="param-badge">Stabilizer (&psi;=0.92)</span></div>
+          </div>
+        </div>
+
+        <!-- Frame 03 -->
+        <div class="card highlight-teal">
+          <img src="architectural_noise_orbit/08_step0_orbit_frame_03.png" alt="Sunset Shear Wall" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">ORBIT VANTAGE 4</span>
+            <div class="caption-title">Sunset Shear Wall</div>
+            <div class="caption-sub">Framed sunset horizon returning smoothly toward the closed-loop boundary (&theta; = 270&deg;)</div>
+            <div class="badge-bar"><span class="param-badge">&theta; = 270&deg;</span><span class="param-badge">Looping Tour</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Architectural Material Matrix: Subspace Channel Mutation -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-row">
+          <h2>6. Architectural Material Matrix — Subspace Channel Mutation</h2>
+          <span class="badge">LOCKED GEOMETRY</span>
+        </div>
+        <p class="desc">Decoupling structural geometry channels from surface chroma channels to achieve bold material swaps while locking object geometry 100%.</p>
+      </div>
+
+      <div class="diagnostic-box success">
+        <strong>100% Geometry Lock:</strong> Transforming natural birch wood and oat linen into mirror chrome with marble reflections, and into solid 24k polished gold framing with gold lattice relief art, while chair silhouette, perspective, and room geometry remain 100% locked.
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Natural Linen Baseline -->
+        <div class="card">
+          <img src="bold_brand_material_v5/03_chair_oat_linen_ctrl.png" alt="Natural Oat Linen Armchair Baseline" />
+          <div class="card-body">
+            <span class="tag tag-control">CONTROL BASELINE</span>
+            <div class="caption-title">Natural Birch & Oat Linen</div>
+            <div class="caption-sub">Minimalist architectural armchair baseline (Seed 7712) in neutral studio</div>
+            <div class="badge-bar"><span class="param-badge">Baseline | Denoise 1.0</span></div>
+          </div>
+        </div>
+
+        <!-- Chrome & Marble Mutation -->
+        <div class="card highlight-teal">
+          <img src="bold_brand_material_v5/04_chair_black_leather_chrome.png" alt="Mirror Chrome and Marble" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">MUTATION: CHROME & MARBLE</span>
+            <div class="comparison-label" style="color: var(--accent);">✓ Locked Geometry</div>
+            <div class="caption-title">Mirror Chrome & Polished Brass</div>
+            <div class="caption-sub">Mirror-polished chrome chair framing, marble floor reflections, solid brass side tables</div>
+            <div class="badge-bar"><span class="param-badge">Channel Split | Denoise 0.65</span></div>
+          </div>
+        </div>
+
+        <!-- 24k Solid Gold Mutation -->
+        <div class="card highlight-teal">
+          <img src="bold_brand_material_v5/05_chair_sapphire_gold.png" alt="Solid 24k Gold Luxury" />
+          <div class="card-body">
+            <span class="tag tag-gimbal">MUTATION: 24k SOLID GOLD</span>
+            <div class="comparison-label" style="color: var(--accent);">✓ Locked Geometry</div>
+            <div class="caption-title">24k Solid Gold & Gold Lattice</div>
+            <div class="caption-sub">Mirror-polished 24k solid gold frame, gold console bench, and gold filigree relief art</div>
+            <div class="badge-bar"><span class="param-badge">Channel Split | Denoise 0.65</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
+

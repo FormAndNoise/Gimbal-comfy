@@ -1,0 +1,161 @@
+{
+  "200": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux1-dev.sft",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "201": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    }
+  },
+  "202": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["201", 0],
+      "text": "architectural elevation shot of a modernist villa, clean geometric lines, floor to ceiling glass, soft overcast daylight, architectural digest, sharp focus"
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["201", 0],
+      "text": ""
+    }
+  },
+  "4": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "batch_size": 1,
+      "height": 1024,
+      "width": 1024
+    }
+  },
+  "10": {
+    "class_type": "KSampler",
+    "inputs": {
+      "cfg": 3.5,
+      "control_after_generate": "fixed",
+      "denoise": 1.0,
+      "latent_image": ["4", 0],
+      "model": ["200", 0],
+      "negative": ["3", 0],
+      "positive": ["2", 0],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "seed": 777,
+      "steps": 20
+    }
+  },
+  "11": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": ["10", 0],
+      "vae": ["202", 0]
+    }
+  },
+  "12": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "FLUX_Gimbal_09/01_concrete_ctrl",
+      "images": ["11", 0]
+    }
+  },
+  "14": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["201", 0],
+      "text": "architectural elevation shot of a modernist villa with fluted dark polished obsidian stone facade, blackened steel louvers, bronze tinted glass, luxury commercial architecture"
+    }
+  },
+  "20": {
+    "class_type": "GimbalChannelSplit",
+    "inputs": {
+      "latent": ["10", 0],
+      "split_index": 8
+    }
+  },
+  "21": {
+    "class_type": "GimbalCrossModalBridge",
+    "inputs": {
+      "base_latent": ["20", 1],
+      "llm_instruction": "dark polished obsidian glass, blackened steel, bronze reflection",
+      "mapping_mode": "Keyword_Heuristics"
+    }
+  },
+  "22": {
+    "class_type": "GimbalCompass_Pro",
+    "inputs": {
+      "allow_batch_expand": false,
+      "base_latent": ["20", 1],
+      "clamp_mask_input": false,
+      "clamp_max": 8.0,
+      "clamp_min": -8.0,
+      "clamp_output": true,
+      "enable_perf_logging": false,
+      "mode": "Orthogonal_Projection",
+      "origin_latent": ["21", 1],
+      "ortho_per_channel": true,
+      "strength": 0.85,
+      "target_latent": ["21", 0]
+    }
+  },
+  "23": {
+    "class_type": "GimbalChannelMerge",
+    "inputs": {
+      "latent_band_A": ["20", 0],
+      "latent_band_B": ["22", 0]
+    }
+  },
+  "24": {
+    "class_type": "GimbalLatentStabilizer",
+    "inputs": {
+      "jitter_strength": 0.0,
+      "latent": ["23", 0],
+      "scale_cap": 10.0,
+      "subspace_rank": -1,
+      "truncation_psi": 0.90
+    }
+  },
+  "25": {
+    "class_type": "KSampler",
+    "inputs": {
+      "cfg": 3.0,
+      "control_after_generate": "fixed",
+      "denoise": 0.38,
+      "latent_image": ["24", 0],
+      "model": ["200", 0],
+      "negative": ["3", 0],
+      "positive": ["14", 0],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "seed": 777,
+      "steps": 16
+    }
+  },
+  "26": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": ["25", 0],
+      "vae": ["202", 0]
+    }
+  },
+  "27": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "FLUX_Gimbal_09/02_obsidian_facade",
+      "images": ["26", 0]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["1", 1],
+      "text": "monolithic brutalist architectural pavilion on rugged coastal cliff, cantilevered board-formed concrete, floor to ceiling glass, warm interior light, architectural photography, masterpiece, sharp focus"
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["1", 1],
+      "text": "blurry, low quality, cartoon, watermark, noisy"
+    }
+  },
+  "4": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "batch_size": 1,
+      "height": 1024,
+      "width": 1024
+    }
+  },
+  "20": {
+    "class_type": "GimbalCircularOrbit",
+    "inputs": {
+      "center_latent": ["4", 0],
+      "orbit_mode": "Orthogonal_Basis",
+      "preserve_hypersphere_norm": true,
+      "radius": 0.95,
+      "seed": 105,
+      "steps": 4
+    }
+  },
+  "25": {
+    "class_type": "GimbalLatentStabilizer",
+    "inputs": {
+      "jitter_strength": 0.0,
+      "latent": ["20", 0],
+      "scale_cap": 10.0,
+      "subspace_rank": -1,
+      "truncation_psi": 0.92
+    }
+  },
+  "30": {
+    "class_type": "KSampler",
+    "inputs": {
+      "cfg": 6.0,
+      "control_after_generate": "fixed",
+      "denoise": 1.0,
+      "latent_image": ["25", 0],
+      "model": ["1", 0],
+      "negative": ["3", 0],
+      "positive": ["2", 0],
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "seed": 8802,
+      "steps": 24
+    }
+  },
+  "31": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": ["30", 0],
+      "vae": ["1", 2]
+    }
+  },
+  "32": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "Gimbal_08_HarmonicOrbiter",
+      "images": ["31", 0]
+    }
+  }
+}
