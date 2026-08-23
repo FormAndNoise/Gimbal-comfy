@@ -231,15 +231,19 @@ class TestGeodesic:
     def test_orthogonal_vectors_quarter_turn(self):
         # Two orthogonal unit offsets from mu -> angular distance = pi/2.
         mu = torch.zeros(1, 1, 1, 4)
-        a = mu.clone(); a[..., 0] = 1.0
-        b = mu.clone(); b[..., 1] = 1.0
+        a = mu.clone()
+        a[..., 0] = 1.0
+        b = mu.clone()
+        b[..., 1] = 1.0
         d = geodesic_angular(a, b, mu=mu)
         assert abs(d.item() - math.pi / 2) < 1e-4
 
     def test_opposite_vectors_half_turn(self):
         mu = torch.zeros(1, 1, 1, 4)
-        a = mu.clone(); a[..., 0] = 1.0
-        b = mu.clone(); b[..., 0] = -1.0
+        a = mu.clone()
+        a[..., 0] = 1.0
+        b = mu.clone()
+        b[..., 0] = -1.0
         d = geodesic_angular(a, b, mu=mu)
         assert abs(d.item() - math.pi) < 1e-3
 
