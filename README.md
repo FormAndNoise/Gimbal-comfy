@@ -37,7 +37,7 @@
 - **[🔬 Mathematical & Theoretical Deep Dives](#-mathematical--theoretical-deep-dives)**
 - **[📖 Project History](#-project-history)**
 - **[📚 Documentation Archives & Research Papers](./docs/README.md)**
-- **[🏷️ Brand Standards](#-brand-standards)**
+
 
 ---
 
